@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>2026 대전콘텐츠페어 실행계획서</title>
+<!--
+====================================================================
+  2026 대전콘텐츠페어(DCF) 실행계획서 · 실시간 대시보드  (v1)
+  대전관광공사 MICE사업단 전시기획팀
+--------------------------------------------------------------------
+  ● 확정/정적 내용(프로그램·추진체계·목표지표·추진일정)은 이 HTML에 직접 반영
+    → GitHub으로 버전관리. 내용이 바뀌면 이 파일을 고쳐 커밋.
+  ● 자주 바뀌는 값(부스현황·참가자·인력배치·위원명단)은 구글시트를 단일 원천으로 fetch.
+    → 구글시트: 파일 > 공유 > "웹에 게시" > 해당 '시트' 선택 > CSV
+      발급된 URL을 아래 CONFIG.sheets 에 붙여넣기.
+  ● 보안: 예산 시트·참가자 세부 시트는 절대 게시하지 말 것.
+    참가자는 '부스번호·간판명'만 담은 공개전용 시트를 별도로 만들어 게시.
+====================================================================
+-->
+<style>
+:root{
+  --primary:#1F4E79;--primary-2:#2E6DA4;--primary-light:#D6E4F0;
+  --accent:#C00000;--ok:#1e7d4f;--warn:#b8860b;
+  --bg:#F4F6F9;--card:#FFFFFF;--line:#E2E8F0;--text:#1A1A2E;--muted:#5b6b7d;--lock:#8a94a6;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Pretendard","Pretendard Variable",-apple-system,BlinkMacSystemFont,"Malgun Gothic","맑은 고딕","Apple SD Gothic Neo",sans-serif;
+  line-height:1.55;font-size:15px}
+a{color:var(--primary-2)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header.top{background:linear-gradient(135deg,var(--primary),#16385a);color:#fff;padding:30px 0 22px}
+header.top .wrap{display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px;justify-content:space-between}
+header.top h1{margin:0;font-size:26px;letter-spacing:-.5px;font-weight:800}
+header.top .sub{opacity:.85;font-size:13.5px;margin-top:4px}
+.livebar{display:flex;align-items:center;gap:10px;font-size:12.5px}
+.dot{width:9px;height:9px;border-radius:50%;background:#7CFFB2;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(124,255,178,.6)}70%{box-shadow:0 0 0 8px rgba(124,255,178,0)}100%{box-shadow:0 0 0 0 rgba(124,255,178,0)}}
+.btn{border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.12);color:#fff;padding:6px 12px;border-radius:8px;font-size:12.5px;cursor:pointer;font-family:inherit}
+.btn:hover{background:rgba(255,255,255,.22)}
+nav.toc{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+nav.toc .wrap{display:flex;gap:2px;overflow-x:auto;padding:0 20px}
+nav.toc a{white-space:nowrap;padding:12px 10px;font-size:12.5px;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent}
+nav.toc a:hover{color:var(--primary);border-bottom-color:var(--primary)}
+section{padding:34px 0;border-bottom:1px solid var(--line)}
+section h2{font-size:20px;margin:0 0 4px;color:var(--primary);display:flex;align-items:center;gap:10px}
+section h2 .no{background:var(--primary);color:#fff;font-size:12px;width:24px;height:24px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-weight:700}
+section .lead{color:var(--muted);font-size:13.5px;margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.card.kpi .n{font-size:22px;font-weight:800;color:var(--primary);letter-spacing:-.5px}
+.card.kpi .l{font-size:12.5px;color:var(--muted);margin-top:2px}
+.card.kpi .prev{font-size:11.5px;color:var(--muted);margin-top:3px}
+table{width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:10px;overflow:hidden}
+th,td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--primary);color:#fff;font-weight:600;font-size:12.5px}
+tbody tr:nth-child(odd){background:var(--primary-light)}
+tbody tr:nth-child(odd) td{background:transparent}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600}
+.badge.jamjeong{background:#FFF4D6;color:var(--warn)}
+.badge.fixed{background:#E1F3E9;color:var(--ok)}
+.badge.live{background:#E7F0FA;color:var(--primary-2)}
+.badge.lock{background:#EEF0F4;color:var(--lock)}
+.d16,.d17,.d18{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;border-radius:5px;font-size:11px;font-weight:700;margin-right:2px}
+.d16{background:#dbeafe;color:#1e40af}.d17{background:#dcfce7;color:#166534}.d18{background:#fee2e2;color:#991b1b}
+.await{border:1.5px dashed #c3cede;border-radius:12px;background:#fbfdff;padding:16px 18px;color:var(--muted);font-size:13px}
+.await b{color:var(--primary)}.await code{background:#eef2f7;padding:1px 6px;border-radius:5px;font-size:12px}
+.locked{border:1.5px solid #e3e6ec;border-radius:12px;background:repeating-linear-gradient(45deg,#f7f8fa,#f7f8fa 12px,#f2f3f6 12px,#f2f3f6 24px);padding:22px;text-align:center;color:var(--lock)}
+.locked .ic{font-size:26px}.locked h3{margin:6px 0 4px;color:#54607a;font-size:15px}.locked p{margin:0;font-size:12.5px}
+.chip{border:1px solid var(--line);background:#fff;color:var(--muted);padding:6px 13px;border-radius:999px;font-size:12.5px;cursor:pointer;font-family:inherit}
+.chip.on{background:var(--primary);color:#fff;border-color:var(--primary)}
+.prog-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.prog-tabs .chip.on{background:var(--accent);border-color:var(--accent)}
+.axis-head{font-size:14px;font-weight:700;color:var(--accent);margin:18px 0 6px}
+.gantt{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+.gantt table{border-radius:0;font-size:12.5px}
+.mcell{text-align:center;font-size:11px;color:var(--muted);min-width:30px}
+.bar{height:15px;border-radius:4px;background:var(--primary);position:absolute}
+.kv{display:grid;grid-template-columns:110px 1fr;gap:3px 14px;font-size:13.5px;margin:6px 0}
+.kv dt{color:var(--muted)}.kv dd{margin:0}
+.note{font-size:12px;color:var(--muted);margin-top:8px}
+.dl{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#fff;text-decoration:none;padding:11px 16px;border-radius:10px;font-size:13.5px;font-weight:600}
+.dl:hover{background:#16385a}.dl.ghost{background:#fff;color:var(--primary);border:1.5px solid var(--primary)}
+.dl.pend{background:#eef1f5;color:#8a94a6;border:1.5px dashed #c3cede;cursor:default}
+footer{padding:26px 0 60px;color:var(--muted);font-size:12.5px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+@media print{
+  nav.toc,.livebar,.btn{display:none!important}
+  header.top{background:var(--primary)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  section{page-break-inside:avoid;padding:16px 0}
+  body{font-size:11px}
+  thead th,.bar,.card.kpi .n,.d16,.d17,.d18{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .await{display:none}
+}
+</style>
+</head>
+<body>
+
+<script>
+/* ⚙️ 구글시트 "웹에 게시(CSV)" URL만 넣으면 실시간 연동. 빈칸이면 아래 내장 스냅샷/안내가 표시됩니다. */
+const CONFIG = {
+  fileId:"1tm3RhCVes9t5NT0CiJn9S0t8ZEPjJbVElLUjIdXyFaY",
+  sheets:{
+    booths:"",        // 부스현황: 부스번호,간판명,상태
+    participants:"",  // 참가자(공개전용): 부스번호,간판명   ※공개컬럼만 담은 별도 시트!
+    staffing:"",      // 인력배치: 구역,담당자,역할,연락처
+    committee:""      // 위원: 구분,성명,소속·직위
+  }
+};
+
+/* ── 프로그램 실데이터 (업무총괄 '3.프로그램1' 반영) ── */
+const PROGRAMS=[
+ {tab:"fest",axis:"공식행사",name:"개막식",org:"대전시·공사",days:["16"],date:"10.16(금)",place:"무대",desc:"개회 선언, 주요 내빈 소개, 테이프 커팅으로 공식 개막"},
+ {tab:"fest",axis:"공식행사",name:"공공지자체캐릭터 페스티벌 시상식",org:"대전시·공사·협회",days:["17"],date:"10.17(토)",place:"무대",desc:"전국 지자체 공공캐릭터 우수사례 시상 및 산업화 우수모델 발표"},
+ {tab:"fest",axis:"① 공공캐릭터(IP) 중심 대표 콘텐츠",name:"대한민국 공공지자체캐릭터 페스티벌",org:"공사·KOCLA",days:["16"],date:"연중(국민투표)",place:"온라인",desc:"온라인 국민투표 기반 사전 참여형 플랫폼으로 전국 관심도 제고 및 본행사 연계"},
+ {tab:"fest",axis:"① 공공캐릭터(IP) 중심 대표 콘텐츠",name:"공공캐릭터 컨퍼런스",org:"공사·KOCLA",days:["16"],date:"10.16(금)",place:"무대",desc:"관광연계·굿즈개발·라이선싱 등 공공 IP 성공모델 확산"},
+ {tab:"fest",axis:"① 공공캐릭터(IP) 중심 대표 콘텐츠",name:"공공캐릭터 '오픈 라이선싱' 비즈매칭",org:"공사",days:["16","17"],date:"10.16~17",place:"참가사 부스",desc:"지자체·공공기관 캐릭터 IP와 콘텐츠 기업 간 1:1 상담으로 사업화 기회 제공"},
+ {tab:"fest",axis:"① 공공캐릭터(IP) 중심 대표 콘텐츠",name:"공공IP 라이선싱 전략 컨설팅존",org:"KOCLA·한국저작권위원회",days:["16","17"],date:"10.16~17",place:"별도 부스",desc:"IP 보호·라이선싱 계약·지식재산권 활용 전문 법률자문 상담"},
+ {tab:"fest",axis:"① 공공캐릭터(IP) 중심 대표 콘텐츠",name:"꿈돌이 IP 상담",org:"공사",days:["16","17","18"],date:"10.16~18",place:"꿈돌이 홍보관",desc:"꿈돌이 IP 사용 안내 및 굿즈 개발·라이선싱 협의"},
+ {tab:"game",axis:"공식행사",name:"기능성게임대회 시상식",org:"공사·기능성게임 추진위",days:["18"],date:"10.18(일)",place:"무대",desc:""},
+ {tab:"game",axis:"② Gamification 기반 교육·체험",name:"제1회 대한민국 기능성게임 공모전 (모두의 게임)",org:"추진위원회",days:["16","17","18"],date:"10.16~18",place:"기능성게임존",desc:"지역대학 게임학과 연계 기능성·교육형 게임 콘텐츠 공동 기획·운영"},
+ {tab:"game",axis:"② Gamification 기반 교육·체험",name:"e스포츠 게임대회 / 브롤스타즈",org:"이스포츠경기장",days:["16","17","18"],date:"10.16~18",place:"e스포츠 무대",desc:"e스포츠 대회, 무료 체험, 업체 이벤트 및 게임 소개 공간"},
+ {tab:"game",axis:"② Gamification 기반 교육·체험",name:"TCG (원신·유희왕)",org:"DICU·이스포츠경기장",days:["17","18"],date:"10.17~18",place:"B스포츠 무대",desc:""},
+ {tab:"game",axis:"② Gamification 기반 교육·체험",name:"보드게임 작가존 운영",org:"보드게임작가협회(KTDA)",days:["16","17","18"],date:"10.16~18",place:"별도 보드게임존",desc:""},
+ {tab:"cos",axis:"③ 서브컬처 기반 참여형 콘텐츠",name:"코스튬 퍼레이드",org:"DICU",days:["17"],date:"10.17(토)",place:"전시홀 내",desc:"행사장 동선 전체를 활용한 퍼레이드로 현장 분위기 활성화"},
+ {tab:"cos",axis:"③ 서브컬처 기반 참여형 콘텐츠",name:"코스튬 플레이 런웨이",org:"DICU",days:["17"],date:"10.17(토)",place:"무대",desc:"전국 단위 코스프레 런웨이 대회로 팬덤 참여 유도 및 SNS 확산"},
+ {tab:"cos",axis:"③ 서브컬처 기반 참여형 콘텐츠",name:"이타샤 차량전시",org:"DICU",days:["16","17","18"],date:"10.16~18",place:"전시홀 내",desc:"캐릭터·애니·게임 IP 래핑 차량 전시로 서브컬처 팬층 유입 확대"},
+ {tab:"cos",axis:"③ 서브컬처 기반 참여형 콘텐츠",name:"유명 코스프레 인플루언서 사인회",org:"DICU",days:["17"],date:"10.17(토)",place:"무대",desc:""},
+ {tab:"cos",axis:"③ 서브컬처 기반 참여형 콘텐츠",name:"애니 디제잉 / 애니송 콘테스트",org:"DICU",days:["18"],date:"10.18(일)",place:"무대",desc:""},
+ {tab:"cos",axis:"③ 서브컬처 기반 참여형 콘텐츠",name:"잇츠하비 · 체험 부스(캐릭터 굿즈 만들기 등)",org:"잇츠하비·아누타 외",days:["16","17","18"],date:"10.16~18",place:"체험존",desc:"나만의 캐릭터 굿즈 만들기, 마인크래프트 블록쌓기 등 상시 체험"}
+];
+
+/* ── 추진 마일스톤 (공개 확정 일정 기반) ── */
+const MILESTONES=[
+ {cat:"홍보·모집",name:"공공캐릭터 페스티벌 접수",s:"2026-05-11",e:"2026-07-10"},
+ {cat:"홍보·모집",name:"전시부스 모집·판매(1~3차)",s:"2026-05-01",e:"2026-07-31"},
+ {cat:"접수·심사",name:"페스티벌 예선 심사·발표",s:"2026-07-01",e:"2026-07-16"},
+ {cat:"접수·심사",name:"국민투표",s:"2026-07-20",e:"2026-08-21"},
+ {cat:"접수·심사",name:"본선 전문가 심사",s:"2026-08-22",e:"2026-08-31"},
+ {cat:"접수·심사",name:"최종 수상작 발표",s:"2026-09-04",e:"2026-09-04"},
+ {cat:"전시·조성",name:"전시장 조성·부스 배치 확정",s:"2026-09-01",e:"2026-10-15"},
+ {cat:"행사·운영",name:"본 행사 개최(3일)",s:"2026-10-16",e:"2026-10-18"},
+ {cat:"행사·운영",name:"시상식(개막)",s:"2026-10-16",e:"2026-10-16"},
+ {cat:"사후관리",name:"정산·결과보고",s:"2026-10-19",e:"2026-11-30"}
+];
+
+/* ── 기능성게임 실무추진위원회 구성(연락처 제외) ── */
+const COMMITTEE=[
+ {g:"위원장",name:"박근만",aff:"대전게임콘텐츠협회(DGCA) 회장"},
+ {g:"위원",name:"이영호",aff:"배재대학교 게임공학과 교수"},
+ {g:"위원",name:"민병원",aff:"목원대학교 게임소프트웨어공학과 교수"},
+ {g:"위원",name:"정찬영",aff:"우송대학교 게임멀티미디어학과 교수"},
+ {g:"위원",name:"김문식",aff:"DGCA 부회장 · (주)에이디엠아이 대표"},
+ {g:"위원",name:"정성근",aff:"DGCA 수석부회장 · 비주얼라이트 대표"},
+ {g:"자문",name:"김윤중",aff:"마음E&A · 대전이스포츠경기장 대표"}
+];
+
+/* ── 확정 참가기관 스냅샷(공개·기관명만, 부스번호는 시트 연동) ── */
+const PARTICIPANTS_SNAPSHOT=["울산광역시 중구청","국가철도공단","주식회사 카이","한국저작권보호원","에스이메이커스(주)","천안시청","한국원자력연구원","국가보훈부","디엠피북스","함평군","한림사","대전관광공사","한국가스안전공사","프로젝트터리","(주)인디자인월드와이드","레벨롭","모동"];
+
+/* ── 다운로드 양식(업무총괄 '22' 반영) ── */
+const DOWNLOADS=[
+ {name:"전시부스 신청서",href:""},
+ {name:"전시참가 매뉴얼",href:""},
+ {name:"공공캐릭터 신청서",href:""},
+ {name:"기능성게임 공모전 신청서",href:""},
+ {name:"코스프레 런웨이 신청서",href:""},
+ {name:"렌탈품목 카탈로그·신청서",href:""}
+];
+</script>
+
+<header class="top">
+  <div class="wrap">
+    <div>
+      <h1>2026 대전콘텐츠페어 실행계획서</h1>
+      <div class="sub">대전관광공사 MICE사업단 전시기획팀 · 대전정보문화산업진흥원</div>
+    </div>
+    <div class="livebar">
+      <span class="dot"></span><span>실시간 연동</span>
+      <span id="updated" style="opacity:.8">—</span>
+      <button class="btn" onclick="loadAll()">↻ 새로고침</button>
+      <button class="btn" onclick="window.print()">🖨 인쇄</button>
+    </div>
+  </div>
+</header>
+
+<nav class="toc"><div class="wrap" id="toc"></div></nav>
+
+<main class="wrap">
+
+<!-- 1 -->
+<section id="s-overview">
+  <h2><span class="no">1</span>추진 개요</h2>
+  <p class="lead">행사 기본정보와 '25 대비 '26 목표 지표.</p>
+  <div class="grid" style="margin-bottom:14px">
+    <div class="card kpi"><div class="l">기간</div><div class="n" style="font-size:15px">2026.10.16(금)~18(일)</div></div>
+    <div class="card kpi"><div class="l">장소</div><div class="n" style="font-size:15px">DCC 제2전시장</div></div>
+    <div class="card kpi"><div class="l">주최 / 주관</div><div class="n" style="font-size:13px">대전시 <span class="badge fixed">주최</span> / 공사·진흥원 <span class="badge live">주관</span></div></div>
+    <div class="card kpi"><div class="l">연계행사</div><div class="n" style="font-size:14px">지자체·공공캐릭터 페스티벌</div></div>
+  </div>
+  <div class="grid" id="kpi-grid"></div>
+  <p class="note">※ 목표 지표는 업무총괄 기준 잠정값으로, 확정 시 갱신됩니다.</p>
+</section>
+
+<!-- 2 -->
+<section id="s-purpose">
+  <h2><span class="no">2</span>추진 배경 · 목적</h2>
+  <p class="lead">정책적 맥락 및 필요성 (초안 — 보고 문안으로 교체 예정)</p>
+  <div class="card">
+    <p><b>추진 배경.</b> 콘텐츠산업의 지역 거점화 흐름 속에서 대전은 <b>공공캐릭터·게이미피케이션·서브컬처</b> 3대 축을 중심으로 한 콘텐츠 융복합 전시를 통해 지역 콘텐츠 생태계와 산업 저변을 확대하고자 함.</p>
+    <p style="margin-bottom:0"><b>추진 목적.</b> ① 공공·민간 콘텐츠의 B2B·B2C 교류 플랫폼 제공 ② 지자체·공공기관 캐릭터 IP의 인지도·활용도 제고 ③ 참여형 프로그램을 통한 대중 접점 및 지역 방문 수요 창출.</p>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="s-org">
+  <h2><span class="no">3</span>조직 · 추진체계</h2>
+  <p class="lead">추진체계는 정적, 위원 명단은 확정 시 시트 연동으로 갱신.</p>
+  <div class="card" style="margin-bottom:14px">
+    <div class="kv">
+      <dt>주최</dt><dd>대전광역시(DCF) / 운영위원회(공공캐릭터 페스티벌)</dd>
+      <dt>주관</dt><dd>대전관광공사, 대전정보문화산업진흥원 · 공동주관: 한국문화콘텐츠라이센싱협회(KOCLA)</dd>
+      <dt>후원(예정)</dt><dd>문화체육관광부, 행정안전부 등</dd>
+      <dt>협력</dt><dd>기능성게임 실무추진위원회, DICU(대전아마추어만화협회), DGCA(대전게임콘텐츠협회), KTDA(보드게임작가협회) 등</dd>
+    </div>
+  </div>
+  <h3 style="font-size:15px;color:var(--primary);margin:0 0 8px">기능성게임 실무추진위원회 구성</h3>
+  <div id="committee-box"></div>
+</section>
+
+<!-- 4 -->
+<section id="s-schedule">
+  <h2><span class="no">4</span>총괄 추진일정</h2>
+  <p class="lead">주요 마일스톤(내장, 확정일 기반). 세부 업무단위 간트는 일정 시트 연동 시 자동 확장.</p>
+  <div id="gantt-box"></div>
+</section>
+
+<!-- 5 -->
+<section id="s-booth">
+  <h2><span class="no">5</span>전시장 조성 · 부스배치</h2>
+  <p class="lead">배치도 이미지(정적) + 부스 현황(시트 연동).</p>
+  <div class="card" style="margin-bottom:14px">
+    <div class="await"><b>📐 부스배치도 이미지</b> — 배치도 PNG를 repo <code>/assets/booth-map.png</code>로 올린 뒤 이 자리에 연결하거나, 인터랙티브 배치툴 URL을 버튼으로 연결하세요. (현재 업무총괄의 배치 그리드는 전년도 템플릿이 섞여 있어 확정 후 반영 권장)</div>
+  </div>
+  <h3 style="font-size:15px;color:var(--primary);margin:0 0 8px">부스 현황 <span class="badge live">시트</span></h3>
+  <div id="booth-box"></div>
+</section>
+
+<!-- 6 -->
+<section id="s-ops">
+  <h2><span class="no">6</span>전시장 운영계획</h2>
+  <p class="lead">운영 원칙. 세부 동선·시간표 확정 시 표로 추가.</p>
+  <div class="grid">
+    <div class="card"><b>전시공간 운영</b><p class="note" style="margin-top:4px">공공캐릭터·게이미피케이션·서브컬처 3존 구성, 참가사 부스 운영</p></div>
+    <div class="card"><b>부대행사 운영</b><p class="note" style="margin-top:4px">메인무대·e스포츠 무대·체험존 병행 운영</p></div>
+    <div class="card"><b>안전 및 응급</b><p class="note" style="margin-top:4px">안전관리계획·의무실·비상동선 (세부 수립 필요)</p></div>
+    <div class="card"><b>운영인력</b><p class="note" style="margin-top:4px">§10 인력 배치도 참조</p></div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section id="s-program">
+  <h2><span class="no">7</span>프로그램</h2>
+  <p class="lead">3대 축 대표 프로그램. 일자 배지 <span class="d16">16</span><span class="d17">17</span><span class="d18">18</span> 로 운영일 표시.</p>
+  <div class="prog-tabs" id="prog-tabs">
+    <button class="chip on" data-p="fest">공공페스티벌</button>
+    <button class="chip" data-p="game">기능성게임</button>
+    <button class="chip" data-p="cos">코스프레런웨이</button>
+  </div>
+  <div id="prog-box"></div>
+</section>
+
+<!-- 8 -->
+<section id="s-budget">
+  <h2><span class="no">8</span>예산 <span class="badge lock">보안</span></h2>
+  <p class="lead">공개 사이트에는 게시하지 않음 — 데이터가 물리적으로 노출되지 않습니다.</p>
+  <div class="locked"><div class="ic">🔒</div><h3>예산 내역은 비공개</h3>
+    <p>예산 시트는 "웹에 게시"하지 않으므로 이 사이트에서 불러올 수 없습니다.<br>보고용 인쇄본(권한자 전용)에서만 확인하세요.</p></div>
+</section>
+
+<!-- 9 -->
+<section id="s-participants">
+  <h2><span class="no">9</span>전시참가자 <span class="badge lock">보안</span></h2>
+  <p class="lead">세부정보는 비공개. 공개용(부스번호·간판명)만 노출됩니다.</p>
+  <div id="participants-box"></div>
+  <p class="note">⚠️ 반드시 <b>공개 컬럼만 담은 별도 시트</b>를 게시하세요. 원본 시트를 게시하면 대표자·연락처 등 숨긴 컬럼도 CSV로 노출됩니다.</p>
+</section>
+
+<!-- 10 -->
+<section id="s-staffing">
+  <h2><span class="no">10</span>인력 배치도</h2>
+  <p class="lead">구역별 담당·역할 (시트 연동, 운영 스태프용).</p>
+  <div id="staffing-box"></div>
+</section>
+
+<!-- 11 -->
+<section id="s-download" style="border-bottom:none">
+  <h2><span class="no">11</span>다운로드</h2>
+  <p class="lead">신청 양식·매뉴얼. repo에 파일을 올린 뒤 <code>DOWNLOADS</code>의 href를 연결하세요.</p>
+  <div id="download-box" style="display:flex;gap:12px;flex-wrap:wrap"></div>
+  <p class="note">양식 파일이 없으면 만들어 드릴 수 있어요(hwpx/PDF 자동생성).</p>
+</section>
+
+</main>
+
+<footer><div class="wrap">
+  <div>대전관광공사 MICE사업단 전시기획팀 · joseph@djto.kr · 042-250-6232</div>
+  <div id="foot-updated">최종 데이터 갱신: —</div>
+</div></footer>
+
+<script>
+/* ===== 유틸 ===== */
+function bust(u){return u+(u.includes("?")?"&":"?")+"_cb="+Date.now();}
+async function fetchCSV(u){const r=await fetch(bust(u),{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);return parseCSV(await r.text());}
+function parseCSV(t){const rows=[];let row=[],cur="",q=false;
+  for(let i=0;i<t.length;i++){const c=t[i];
+    if(q){if(c==='"'){if(t[i+1]==='"'){cur+='"';i++;}else q=false;}else cur+=c;}
+    else{if(c==='"')q=true;else if(c===",")row.push(cur),cur="";else if(c==="\n")row.push(cur),rows.push(row),row=[],cur="";else if(c!=="\r")cur+=c;}}
+  if(cur.length||row.length){row.push(cur);rows.push(row);}
+  const h=(rows.shift()||[]).map(x=>x.trim());
+  return rows.filter(r=>r.some(x=>x&&x.trim())).map(r=>Object.fromEntries(h.map((k,i)=>[k,(r[i]||"").trim()])));}
+function awaitBox(t,c){return `<div class="await"><b>🔌 ${t} — 데이터 연동 대기</b><br><code>CONFIG.sheets</code>에 게시 CSV URL을 넣으면 자동 표시됩니다.<br>필요 컬럼: <code>${c}</code></div>`;}
+function errBox(t,e){return `<div class="await"><b>⚠️ ${t} 불러오기 실패</b><br>${e} — 시트가 "웹에 게시(CSV)"되어 있는지 확인하세요.</div>`;}
+function table(rows,cols){return "<table><thead><tr>"+cols.map(c=>`<th>${c}</th>`).join("")+"</tr></thead><tbody>"+
+  rows.map(r=>"<tr>"+cols.map(c=>`<td>${r[c]??""}</td>`).join("")+"</tr>").join("")+"</tbody></table>";}
+function dayBadges(days){return days.map(d=>`<span class="d${d}">${d}</span>`).join("");}
+
+/* ===== 렌더 ===== */
+function renderKPI(){
+  const k=[["관람객","12,000명","'25 6,976명"],["참가 기관","50개","'25 34개"],
+    ["국민투표","100만표","'25 38만표"],["참가사·부스","130개사·250부스","'25 96개사·200부스"],
+    ["비즈매칭 상담","200건","'25 92건"]];
+  document.getElementById("kpi-grid").innerHTML=k.map(([l,n,p])=>
+    `<div class="card kpi"><div class="l">${l}</div><div class="n">${n}</div><div class="prev">${p} <span class="badge jamjeong">목표</span></div></div>`).join("");
+}
+function renderCommittee(){
+  const box=document.getElementById("committee-box"),u=CONFIG.sheets.committee;
+  if(u){fetchCSV(u).then(r=>box.innerHTML=table(r,["구분","성명","소속·직위"])).catch(e=>box.innerHTML=errBox("위원 명단",e.message));return;}
+  box.innerHTML=table(COMMITTEE.map(c=>({"구분":c.g,"성명":c.name,"소속·직위":c.aff})),["구분","성명","소속·직위"]);
+}
+function renderGantt(){
+  const box=document.getElementById("gantt-box");
+  const rows=MILESTONES.map(m=>({...m,sd:new Date(m.s),ed:new Date(m.e)}));
+  const min=new Date(Math.min(...rows.map(r=>r.sd))),max=new Date(Math.max(...rows.map(r=>r.ed)));
+  const months=[];let d=new Date(min.getFullYear(),min.getMonth(),1);
+  while(d<=max){months.push(new Date(d));d.setMonth(d.getMonth()+1);}
+  const span=max-min||1;
+  let h='<div class="gantt"><table><thead><tr><th style="min-width:90px">구분</th><th style="min-width:190px">마일스톤</th>'
+    +months.map(m=>`<th class="mcell">${m.getMonth()+1}월</th>`).join("")+'</tr></thead><tbody>';
+  h+=rows.map(r=>{const left=(r.sd-min)/span*100,w=Math.max((r.ed-r.sd)/span*100,1.5);
+    return `<tr><td>${r.cat}</td><td>${r.name}</td><td colspan="${months.length}" style="padding:7px 6px">
+      <div style="position:relative;height:15px"><div class="bar" title="${r.s}~${r.e}" style="left:${left}%;width:${w}%"></div></div></td></tr>`;}).join("");
+  box.innerHTML=h+"</tbody></table></div>";
+}
+function renderProgram(tab){
+  const box=document.getElementById("prog-box");
+  const items=PROGRAMS.filter(p=>p.tab===tab);
+  const axes=[...new Set(items.map(p=>p.axis))];
+  box.innerHTML=axes.map(ax=>{
+    const rows=items.filter(p=>p.axis===ax);
+    return `<div class="axis-head">${ax}</div>`+
+      "<table><thead><tr><th style='min-width:200px'>프로그램</th><th>담당</th><th>일자</th><th>장소</th><th>내용</th></tr></thead><tbody>"+
+      rows.map(p=>`<tr><td><b>${p.name}</b><br>${dayBadges(p.days)}</td><td>${p.org}</td><td>${p.date}</td><td>${p.place}</td><td>${p.desc}</td></tr>`).join("")+
+      "</tbody></table>";
+  }).join("");
+}
+function renderParticipants(){
+  const box=document.getElementById("participants-box"),u=CONFIG.sheets.participants;
+  if(u){fetchCSV(u).then(r=>{r.sort((a,b)=>(a["부스번호"]||"").localeCompare(b["부스번호"]||"",undefined,{numeric:true}));
+    box.innerHTML=`<p class="note" style="margin-bottom:6px">총 ${r.length}개 참가 <span class="badge live">실시간</span></p>`+table(r,["부스번호","간판명"]);
+  }).catch(e=>box.innerHTML=errBox("참가자",e.message));return;}
+  box.innerHTML=`<p class="note" style="margin-bottom:6px">확정 참가기관 ${PARTICIPANTS_SNAPSHOT.length}개 <span class="badge jamjeong">잠정 스냅샷 · 부스번호는 시트 연동 시 표시</span></p>`
+    +table(PARTICIPANTS_SNAPSHOT.map((n,i)=>({"부스번호":"—","간판명":n})),["부스번호","간판명"]);
+}
+function renderStaffing(){
+  const box=document.getElementById("staffing-box"),u=CONFIG.sheets.staffing;
+  if(u){fetchCSV(u).then(r=>box.innerHTML=table(r,["구역","담당자","역할","연락처"])).catch(e=>box.innerHTML=errBox("인력배치",e.message));return;}
+  box.innerHTML=awaitBox("인력 배치도","구역, 담당자, 역할, 연락처");
+}
+function renderBooths(){
+  const box=document.getElementById("booth-box"),u=CONFIG.sheets.booths;
+  if(u){fetchCSV(u).then(r=>{r.sort((a,b)=>(a["부스번호"]||"").localeCompare(b["부스번호"]||"",undefined,{numeric:true}));
+    box.innerHTML=table(r,["부스번호","간판명","상태"]);}).catch(e=>box.innerHTML=errBox("부스현황",e.message));return;}
+  box.innerHTML=awaitBox("부스 현황","부스번호, 간판명, 상태");
+}
+function renderDownloads(){
+  document.getElementById("download-box").innerHTML=DOWNLOADS.map(d=>
+    d.href?`<a class="dl" href="${d.href}" target="_blank">⬇ ${d.name}</a>`
+          :`<span class="dl pend" title="repo에 파일 업로드 후 href 연결">⬇ ${d.name} · 준비중</span>`).join("");
+}
+
+/* 탭 */
+document.getElementById("prog-tabs").addEventListener("click",e=>{
+  const b=e.target.closest(".chip");if(!b)return;
+  document.querySelectorAll("#prog-tabs .chip").forEach(x=>x.classList.remove("on"));
+  b.classList.add("on");renderProgram(b.dataset.p);
+});
+
+/* 목차 */
+document.getElementById("toc").innerHTML=[["s-overview","개요"],["s-purpose","배경·목적"],["s-org","조직·체계"],
+  ["s-schedule","총괄일정"],["s-booth","부스배치"],["s-ops","운영계획"],["s-program","프로그램"],
+  ["s-budget","예산🔒"],["s-participants","참가자🔒"],["s-staffing","인력배치"],["s-download","다운로드"]]
+  .map(([id,t])=>`<a href="#${id}">${t}</a>`).join("");
+
+/* 전체 로드 */
+function loadAll(){
+  const stamp=new Date().toLocaleString("ko-KR",{dateStyle:"medium",timeStyle:"short"});
+  document.getElementById("updated").textContent="갱신 "+stamp;
+  document.getElementById("foot-updated").textContent="최종 데이터 갱신: "+stamp;
+  renderKPI();renderCommittee();renderGantt();renderProgram("fest");
+  renderParticipants();renderStaffing();renderBooths();renderDownloads();
+}
+loadAll();
+</script>
+</body>
+</html>
