@@ -1,0 +1,1511 @@
+<title>대전콘텐츠페어 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;650;700;800&family=Inter:wght@400;500;600;700&family=Sometype+Mono:wght@400;500&family=Gothic+A1:wght@400;500;600;700;800&display=swap');
+
+  :root {
+    --white: #ffffff;
+    --ink: #202020;
+    --onyx: #090c1d;
+    --carbon: #2a2a2a;
+    --slate: #646464;
+    --ash: #838383;
+    --fog: #b3b3b3;
+    --cloud: #d4d4d4;
+    --bone: #e8e8e8;
+    --mist: #f8f9fa;
+    --plaster: #e9ebf0;
+    --mercury: #eeeeee;
+    --violet: #6647f0;
+    --blue: #0091ff;
+    --mint: #6ee7b7;
+    --emerald: #00c07a;
+
+    --shadow-sm: 0 4px 4px 0 rgba(13, 21, 48, 0.04);
+    --shadow-subtle: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0;
+    background: var(--white);
+    color: var(--ink);
+    font-family: 'Inter', 'Gothic A1', -apple-system, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--blue); text-decoration: none; }
+  a.plain { color: inherit; }
+
+  h1, h2, h3, h4 {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', 'Gothic A1', -apple-system, sans-serif;
+    font-weight: 650;
+    color: var(--onyx);
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .eyebrow {
+    font-family: 'Sometype Mono', 'Gothic A1', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-bottom: 10px;
+  }
+
+  /* ================= NAV ================= */
+  nav.top {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--bone);
+  }
+  nav.top .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    gap: 20px;
+  }
+  nav.top .word { font-weight: 700; font-size: 15px; color: var(--ink); font-family: 'Plus Jakarta Sans','Gothic A1',sans-serif; }
+  nav.top .links {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav.top .links::-webkit-scrollbar { display: none; }
+  nav.top .links a {
+    font-size: 13.5px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--slate);
+    padding: 7px 13px;
+    border-radius: 9999px;
+    transition: background 0.15s, color 0.15s;
+  }
+  nav.top .links a:hover { background: rgba(0,0,0,0.045); color: var(--ink); }
+  nav.top .links a.active { background: rgba(0,145,255,0.09); color: var(--blue); }
+
+  /* per-menu hover colors */
+  nav.top .links a[href="#overview"]:hover     { background: rgba(0,145,255,0.10);   color: #0091ff; }
+  nav.top .links a[href="#stage"]:hover        { background: rgba(102,71,240,0.10);  color: #6647f0; }
+  nav.top .links a[href="#programs"]:hover     { background: rgba(245,158,11,0.13);  color: #b45309; }
+  nav.top .links a[href="#booth"]:hover        { background: rgba(6,182,212,0.10);   color: #0891b2; }
+  nav.top .links a[href="#exhibitors"]:hover   { background: rgba(236,72,153,0.10);  color: #db2777; }
+  nav.top .links a[href="#character"]:hover    { background: rgba(22,163,74,0.12);   color: #16a34a; }
+  nav.top .links a[href="#serious-game"]:hover { background: rgba(220,38,38,0.10);   color: #dc2626; }
+  nav.top .links a[href="#subculture"]:hover   { background: rgba(202,138,4,0.16);   color: #a16207; }
+  nav.top .links a[href="#partners"]:hover     { background: rgba(13,148,136,0.10);  color: #0d9488; }
+  nav.top .links a[href="#contacts"]:hover     { background: rgba(71,85,105,0.12);   color: #475569; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+  }
+
+  /* ================= HERO ================= */
+  header.hero { padding: 56px 0 0; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 56px;
+    align-items: center;
+    padding-bottom: 64px;
+  }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+
+  h1.wordmark {
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    font-weight: 800;
+    margin: 10px 0 22px;
+    text-wrap: balance;
+  }
+  .hero-sub { font-size: 16px; color: var(--slate); max-width: 46ch; margin: 0 0 28px; }
+
+  .check-list { display: flex; flex-direction: column; gap: 10px; margin: 0 0 30px; padding: 0; list-style: none; }
+  .check-list li { display: flex; align-items: baseline; gap: 10px; font-size: 15px; }
+  .check-list .tick { color: var(--blue); font-weight: 700; flex-shrink: 0; }
+  .check-list b { font-weight: 700; color: var(--ink); }
+  .check-list span.d { color: var(--slate); }
+
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* -- hero preview card (product-screenshot substitute) -- */
+  .gradient-ring {
+    --angle: 0deg;
+    border-radius: 22px;
+    padding: 2px;
+    background: conic-gradient(from var(--angle), #7d5be7 19%, #bc3fda 28%, #fa24ce 37%, #fb49a5 45%, #fc6d7b 52%, #fd8461 55%, #fd9a46 58%, #f687c6 65%, #a3a0e0 80%, #4fb9fa 95%, #0091ff 100%);
+    animation: spin-angle 5s linear infinite;
+  }
+  @property --angle { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+  @keyframes spin-angle { to { --angle: 360deg; } }
+  @media (prefers-reduced-motion: reduce) { .gradient-ring { animation: none; } }
+
+  .preview-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: var(--shadow-subtle);
+  }
+  .preview-card .p-label { font-size: 12px; color: var(--ash); font-weight: 600; margin-bottom: 4px; }
+  .preview-card .p-num {
+    font-family: 'Plus Jakarta Sans','Gothic A1',sans-serif;
+    font-size: 60px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--onyx);
+    line-height: 1;
+  }
+  .preview-card .p-cap { font-size: 13px; color: var(--slate); margin: 6px 0 22px; }
+  .pill-row { display: flex; flex-direction: column; gap: 8px; }
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 9999px;
+    width: fit-content;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .status-pill.done { background: var(--mint); color: #06341f; }
+  .status-pill.progress { background: var(--blue); color: #fff; }
+  .status-pill.todo { background: var(--mercury); color: var(--slate); }
+  .status-pill .lbl { opacity: 0.85; font-weight: 500; }
+
+  /* ================= BUTTONS ================= */
+  .btn-fill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--ink);
+    color: var(--white);
+    border-radius: 9999px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+  }
+  .btn-fill:hover { background: #383838; }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--blue);
+    border-radius: 9999px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .btn-ghost:hover { background: rgba(0,145,255,0.06); }
+
+  /* ================= PAGE ROUTER ================= */
+  /* Each nav destination is a standalone "page" — only one is shown at a
+     time, like separate pages on a normal website, instead of one long
+     scrolling document. Switched via JS (initRouter), not CSS alone. */
+  .page { display: none; }
+  .page.active { display: block; animation: page-in 0.18s ease; }
+  @keyframes page-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .page.active { animation: none; } }
+  main.page-area { min-height: 60vh; }
+
+  /* ================= SECTIONS ================= */
+  section { padding: var(--sgap, 64px) 0; border-top: 1px solid var(--bone); }
+  section.page { border-top: none; }
+  section.band { background: var(--plaster); }
+  .sec-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  h2.sec-title { font-size: clamp(24px, 3vw, 34px); letter-spacing: -0.03em; line-height: 1.15; }
+  .sec-note { font-size: 13.5px; color: var(--ash); max-width: 34ch; text-align: right; }
+  @media (max-width: 700px) { .sec-note { text-align: left; } }
+
+  /* ================= STAGE TABLE ================= */
+  .table-scroll { overflow-x: auto; border: 1px solid var(--bone); border-radius: 12px; }
+  table.stage { width: 100%; border-collapse: collapse; min-width: 640px; font-size: 13.5px; background: var(--white); }
+  table.stage th {
+    text-align: left;
+    font-weight: 700;
+    font-size: 12.5px;
+    padding: 12px 14px;
+    background: var(--mist);
+    border-bottom: 1px solid var(--bone);
+    color: var(--carbon);
+  }
+  table.stage th.time-col { width: 100px; }
+  table.stage td { padding: 6px 10px; border-bottom: 1px solid var(--bone); vertical-align: middle; }
+  table.stage tr:last-child td { border-bottom: none; }
+  table.stage td.time { font-size: 12px; color: var(--ash); white-space: nowrap; border-right: 1px solid var(--bone); font-family: 'Sometype Mono','Gothic A1',monospace; }
+  .slot-chip {
+    background: var(--mist);
+    border: 1px solid var(--bone);
+    border-radius: 9999px;
+    padding: 9px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .slot-empty { height: 30px; border-radius: 8px; border: 1px dashed var(--cloud); }
+
+  /* ================= FILTERS / PROGRAM TABLE ================= */
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .filters button {
+    font-family: 'Inter','Gothic A1',sans-serif;
+    cursor: pointer;
+    background: var(--white);
+    color: var(--ink);
+    border: 1px solid var(--bone);
+    border-radius: 9999px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .filters button.active { background: var(--ink); color: var(--white); border-color: var(--ink); }
+  .filters button:hover:not(.active) { border-color: var(--fog); }
+
+  .table-scroll2 { overflow-x: auto; }
+  table.programs { width: 100%; border-collapse: collapse; min-width: 760px; font-size: 13.5px; }
+  table.programs thead th {
+    text-align: left;
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: var(--ash);
+    font-weight: 700;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--bone);
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+  table.programs .cat-row td {
+    padding: 22px 12px 8px;
+    font-family: 'Sometype Mono','Gothic A1',monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--violet);
+    font-weight: 600;
+    border-bottom: 1px solid var(--bone);
+  }
+  table.programs tbody tr.prog-row td { padding: 12px; border-bottom: 1px solid var(--bone); vertical-align: top; }
+  table.programs .p-name { font-weight: 600; color: var(--ink); }
+  table.programs .p-org { color: var(--slate); font-size: 12.5px; }
+  table.programs .p-date, table.programs .p-place { color: var(--ash); font-size: 12.5px; white-space: nowrap; }
+  .daydot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
+  .daydot.on { background: var(--blue); }
+  .daydot.off { background: transparent; border: 1px solid var(--cloud); }
+
+  /* ================= PLACEHOLDER PANELS ================= */
+  .panel-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
+  @media (max-width: 900px) { .panel-grid { grid-template-columns: 1fr; } }
+  .panel-body p { font-size: 15px; line-height: 1.65; color: var(--slate); max-width: 54ch; margin: 0 0 22px; }
+  .panel-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .stub-box {
+    border: 1px dashed var(--cloud);
+    border-radius: 16px;
+    padding: 32px 24px;
+    font-size: 13px;
+    color: var(--ash);
+    text-align: center;
+    background: var(--mist);
+  }
+
+  /* ================= FLOOR PLAN DIAGRAM ================= */
+  .floorplan-fig { margin: 0; }
+  .floorplan-fig svg { display: block; width: 100%; height: auto; }
+  .meta-list { display: flex; flex-direction: column; gap: 16px; background: var(--white); border: 1px solid var(--bone); border-radius: 16px; padding: 22px; }
+  .meta-list .m-k { font-size: 11.5px; letter-spacing: 0.04em; color: var(--ash); margin-bottom: 3px; text-transform: uppercase; }
+  .meta-list .m-v { font-size: 15px; font-weight: 700; color: var(--ink); }
+
+  /* ================= ORG CARDS ================= */
+  .org-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .org-card {
+    background: var(--white);
+    border: 1px solid var(--bone);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: var(--shadow-sm);
+  }
+  .org-card h3 { font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .org-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .org-tags span {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--carbon);
+    background: var(--mist);
+    border: 1px solid var(--bone);
+    border-radius: 9999px;
+    padding: 4px 11px;
+  }
+  .org-status { display: flex; align-items: flex-start; gap: 8px; border-top: 1px solid var(--bone); padding-top: 14px; }
+  .org-status .os-text { font-size: 12.5px; color: var(--ash); flex: 1; line-height: 1.5; }
+
+  /* ================= UPDATE CALLOUT ================= */
+  .callout {
+    background: var(--white);
+    border: 1px solid var(--bone);
+    border-radius: 20px;
+    padding: 28px clamp(20px, 4vw, 36px);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .callout h4 { font-size: 15px; font-weight: 700; color: var(--ink); }
+  .callout ol { margin: 0; padding-left: 20px; font-size: 13.5px; line-height: 1.75; color: var(--slate); }
+  .callout code {
+    font-family: 'Sometype Mono', ui-monospace, monospace;
+    font-size: 12px;
+    background: var(--mist);
+    border: 1px solid var(--bone);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--carbon);
+  }
+
+  footer.credit {
+    padding: 32px 0 56px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--ash);
+  }
+  footer.credit .studio { color: var(--violet); font-weight: 700; }
+
+  /* ================= SERIOUS GAME SECTION ================= */
+  .sg-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .sg-block { margin-bottom: 40px; }
+  .sg-block h3 { font-size: 17px; margin-bottom: 16px; letter-spacing: -0.01em; }
+  .sg-block h4 { font-size: 14.5px; margin: 26px 0 12px; color: var(--ink); }
+  .sg-facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 24px; background: var(--white); border: 1px solid var(--bone); border-radius: 16px; padding: 22px 24px; }
+  .sg-facts .m-k { font-size: 11.5px; letter-spacing: 0.03em; color: var(--ash); margin-bottom: 3px; text-transform: uppercase; }
+  .sg-facts .m-v { font-size: 14px; font-weight: 600; color: var(--ink); }
+  @media (max-width: 640px) { .sg-facts { grid-template-columns: 1fr; } }
+
+  .sg-side { background: var(--white); border: 1px solid var(--bone); border-radius: 16px; padding: 22px 24px; height: fit-content; }
+  .sg-side .m-k { font-size: 11.5px; color: var(--ash); text-transform: uppercase; margin-bottom: 4px; }
+  .sg-side .m-v { font-size: 20px; font-weight: 700; color: var(--onyx); }
+  .sg-side .m-sub { font-size: 12.5px; color: var(--slate); margin-top: 6px; }
+
+  .sg-split { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: start; }
+  @media (max-width: 900px) { .sg-split { grid-template-columns: 1fr; } }
+
+  .sg-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+  @media (max-width: 900px) { .sg-two-col { grid-template-columns: 1fr; } }
+
+  table.plain { width: 100%; border-collapse: collapse; font-size: 13.5px; background: var(--white); border: 1px solid var(--bone); border-radius: 12px; overflow: hidden; }
+  table.plain th { text-align: left; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ash); font-weight: 700; padding: 10px 14px; background: var(--mist); border-bottom: 1px solid var(--bone); }
+  table.plain td { padding: 10px 14px; border-bottom: 1px solid var(--bone); color: var(--ink); }
+  table.plain tr:last-child td { border-bottom: none; }
+  table.plain .muted { color: var(--slate); font-size: 12.5px; }
+
+  .gtimeline { display: flex; flex-direction: column; }
+  .gt-item { display: grid; grid-template-columns: 96px 18px 1fr; gap: 0 14px; }
+  .gt-item .gt-date { font-size: 11.5px; color: var(--ash); font-family: 'Sometype Mono','Gothic A1',monospace; padding-top: 2px; text-align: right; white-space: nowrap; }
+  .gt-item .gt-rail { display: flex; flex-direction: column; align-items: center; }
+  .gt-item .gt-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--cloud); margin-top: 3px; flex-shrink: 0; }
+  .gt-item.done .gt-dot { background: var(--emerald); }
+  .gt-item.progress .gt-dot { background: var(--blue); }
+  .gt-item.todo .gt-dot { background: var(--white); border: 2px solid var(--cloud); }
+  .gt-item .gt-line { width: 2px; flex: 1; background: var(--bone); margin-top: 2px; min-height: 14px; }
+  .gt-item:last-child .gt-line { display: none; }
+  .gt-item .gt-body { padding: 0 0 20px; }
+  .gt-item .gt-title { font-weight: 700; font-size: 13.5px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .gt-item .gt-desc { font-size: 12.5px; color: var(--slate); margin-top: 4px; max-width: 56ch; line-height: 1.55; }
+
+  .sg-univ-grid { display: flex; flex-direction: column; gap: 10px; }
+  .sg-univ-card { background: var(--white); border: 1px solid var(--bone); border-radius: 12px; padding: 14px 16px; }
+  .sg-univ-card .u-name { font-weight: 700; font-size: 13.5px; display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .sg-univ-card .u-desc { font-size: 12.5px; color: var(--slate); line-height: 1.5; }
+
+  .sg-open-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .sg-open-list li { font-size: 13px; color: var(--slate); background: var(--mist); border: 1px solid var(--bone); border-radius: 10px; padding: 10px 14px; }
+  .sg-open-list b { color: var(--ink); font-weight: 600; }
+
+  /* ================= SUBCULTURE PROGRAM CARDS ================= */
+  .sub-grid { display: flex; flex-direction: column; gap: 20px; }
+  .sub-card { background: var(--white); border: 1px solid var(--bone); border-radius: 18px; padding: 26px 28px; box-shadow: var(--shadow-sm); }
+  .sub-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+  .sub-head .ring { width: 14px; height: 14px; border-radius: 50%; border: 4px solid var(--violet); flex-shrink: 0; }
+  .sub-head h3 { font-size: 18px; font-weight: 800; letter-spacing: -0.01em; color: var(--onyx); }
+  .sub-head .sub-slogan { font-size: 13px; color: var(--violet); font-weight: 700; }
+  .sub-head .status-pill { margin-left: auto; }
+  .sub-body { display: grid; grid-template-columns: 220px 1fr; gap: 20px; align-items: stretch; }
+  @media (max-width: 760px) { .sub-body { grid-template-columns: 1fr; } }
+  .sub-imgslot {
+    border: 2px dashed var(--cloud);
+    border-radius: 14px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; gap: 8px; padding: 18px; min-height: 140px;
+    background: var(--mist);
+  }
+  .sub-imgslot .tag { font-size: 10.5px; font-weight: 800; letter-spacing: 0.05em; background: var(--violet); color: #fff; padding: 3px 10px; border-radius: 6px; }
+  .sub-imgslot .desc { font-size: 12px; font-weight: 600; line-height: 1.5; color: var(--ash); }
+  .sub-kv { display: grid; grid-template-columns: 96px 1fr; border-top: 1px solid var(--bone); }
+  .sub-kv:first-child { border-top: none; }
+  .sub-kv .k { padding: 11px 4px 11px 0; font-size: 12px; font-weight: 700; color: var(--ash); }
+  .sub-kv .v { padding: 11px 0; font-size: 13.5px; color: var(--ink); line-height: 1.55; }
+  .sub-kv .v .hi { color: var(--violet); font-weight: 800; }
+  .sub-kv .v.missing { color: var(--ash); font-style: italic; }
+  .sub-kv .v .ref { display: block; font-size: 12px; color: var(--ash); margin-top: 3px; }
+  .sub-note { font-size: 12px; color: var(--ash); margin-top: 16px; line-height: 1.6; }
+
+  /* ================= PUBLIC CHARACTER (공공캐릭터) SECTION ================= */
+  .char-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 40px; }
+  .char-stat { background: var(--white); border: 1px solid var(--bone); border-radius: 16px; padding: 20px 22px; box-shadow: var(--shadow-sm); }
+  .char-stat .cs-k { font-size: 11.5px; color: var(--ash); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 6px; }
+  .char-stat .cs-v { font-family: 'Plus Jakarta Sans','Gothic A1',sans-serif; font-size: 25px; font-weight: 800; color: var(--onyx); letter-spacing: -0.02em; }
+  .char-stat .cs-sub { font-size: 12px; color: var(--slate); margin-top: 4px; line-height: 1.5; }
+  .char-extra { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--bone); }
+  .char-extra h4 { font-size: 12.5px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+</style>
+
+<nav class="top">
+  <div class="container bar">
+    <span class="word">DCF · 2026</span>
+    <div class="links" id="navlinks">
+      <a href="#overview">개요</a>
+      <a href="#stage">메인무대</a>
+      <a href="#programs">프로그램</a>
+      <a href="#booth">부스배치도</a>
+      <a href="#exhibitors">참가사</a>
+      <a href="#character">공공캐릭터</a>
+      <a href="#serious-game">기능성게임</a>
+      <a href="#subculture">서브컬처</a>
+      <a href="#partners">협력현황</a>
+      <a href="#contacts">연락처</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero page active" id="overview" data-page="overview">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">2026.08.27 기준 · 전시기획팀 내부 운영 허브</div>
+      <h1 class="wordmark">2026 대전콘텐츠페어</h1>
+      <p class="hero-sub">참가기관 34 → 50개, 부스 200 → 250개로 확대되는 세 번째 시즌. 공공캐릭터·게이미피케이션·서브컬처, 세 축이 한 전시장 안에서 만난다.</p>
+      <ul class="check-list">
+        <li><span class="tick">✓</span><b>2026. 10. 16(금) – 18(일)</b><span class="d">— 대전컨벤션센터(DCC) 제2전시장</span></li>
+        <li><span class="tick">✓</span><b>주최</b><span class="d">— 대전광역시</span></li>
+        <li><span class="tick">✓</span><b>주관</b><span class="d">— 대전관광공사 · 대전정보문화산업진흥원</span></li>
+      </ul>
+      <div class="hero-actions">
+        <a class="btn-fill" href="#programs">전체 프로그램 보기</a>
+        <a class="btn-ghost" href="https://josephwta-arch.github.io/dcf-2026-plan/" target="_blank" rel="noopener">GitHub Pages 실행계획서</a>
+      </div>
+    </div>
+    <div class="gradient-ring">
+      <div class="preview-card">
+        <div class="p-label">개막까지</div>
+        <div class="p-num">D-50</div>
+        <div class="p-cap">2026.10.16(금) 14:00 개막</div>
+        <div class="pill-row">
+          <span class="status-pill done">협약 4건 <span class="lbl">체결완료</span></span>
+          <span class="status-pill done">국민투표 <span class="lbl">종료(8.21)</span></span>
+          <span class="status-pill progress">전문가 본선심사 <span class="lbl">진행중</span></span>
+          <span class="status-pill todo">개막식 <span class="lbl">예정(10.16)</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="page-area">
+
+  <section id="stage" class="page" data-page="stage">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">01 · Main Stage</div>
+          <h2 class="sec-title">메인무대 사용계획</h2>
+        </div>
+        <p class="sec-note">30분 단위 확정 슬롯 · 공란은 유동 · 수정 방법은 협력현황 페이지 하단 참고</p>
+      </div>
+      <div class="table-scroll">
+        <table class="stage">
+          <thead>
+            <tr>
+              <th class="time-col">시간</th>
+              <th>10.16 (금)</th>
+              <th>10.17 (토)</th>
+              <th>10.18 (일)</th>
+            </tr>
+          </thead>
+          <tbody id="stage-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="programs" class="band page" data-page="programs">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">02 · Full Lineup</div>
+          <h2 class="sec-title">전체 프로그램</h2>
+        </div>
+        <p class="sec-note">3대 전략축 + 공식행사 · 기타 프로그램 통합 22종</p>
+      </div>
+      <div class="filters" id="filters"></div>
+      <div class="table-scroll2">
+        <table class="programs">
+          <thead>
+            <tr>
+              <th>프로그램</th>
+              <th>담당기관</th>
+              <th>10.16</th>
+              <th>10.17</th>
+              <th>10.18</th>
+              <th>일자</th>
+              <th>장소</th>
+            </tr>
+          </thead>
+          <tbody id="program-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="booth" class="page" data-page="booth">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">03 · Floor Plan</div>
+          <h2 class="sec-title">부스배치도</h2>
+        </div>
+      </div>
+      <p style="font-size:15px;line-height:1.65;color:var(--slate);max-width:74ch;margin:0 0 22px;">DCC 제2전시장은 A~F 6개 구역으로 나뉘어 운영된다. 부스 단위 격자 배치(1m×1m)와 업체별 확정 위치는 아래 배치도 사이트에서 실시간으로 확인 가능하며, 이 페이지는 그 기반이 되는 구역 개념도.</p>
+      <div class="panel-actions" style="margin-bottom:32px;">
+        <a class="btn-fill" href="https://josephwta-arch.github.io/dcf-booth/" target="_blank" rel="noopener">부스 배치도 사이트 열기 →</a>
+      </div>
+
+      <figure class="floorplan-fig">
+        <svg viewBox="0 0 1040 660" role="img" aria-label="DCC 제2전시장 구역 배치 개략도 — 상단 메인무대·특설무대, A존 e스포츠·게임존, B존 공공캐릭터 홍보관, C존 콘텐츠문화존, D존 완구·문구존, E존 캐릭터굿즈존, F존 코스프레·애니메이션존" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="20" width="1000" height="600" rx="18" fill="var(--mist)" stroke="var(--bone)" stroke-width="2"/>
+          <text x="46" y="52" font-family="'Sometype Mono',monospace" font-size="12.5" letter-spacing="0.04em" fill="var(--ash)">DCC 제2전시장 · 2026 대전콘텐츠페어 (10.16~18)</text>
+
+          <rect x="340" y="70" width="360" height="84" rx="14" fill="#0091ff" fill-opacity="0.09" stroke="#0091ff" stroke-width="2"/>
+          <text x="520" y="104" text-anchor="middle" font-size="16" font-weight="800" fill="#0091ff">메인무대 · 특설무대</text>
+          <text x="520" y="125" text-anchor="middle" font-size="11.5" fill="var(--slate)">컨퍼런스 · 시상식 · 코스프레 런웨이/퍼레이드</text>
+          <text x="520" y="141" text-anchor="middle" font-size="11.5" fill="var(--slate)">애니가요제 · 애니디제잉</text>
+
+          <!-- Row 1 -->
+          <g>
+            <rect x="52" y="176" width="292" height="176" rx="14" fill="#dc2626" fill-opacity="0.08" stroke="#dc2626" stroke-width="2"/>
+            <text x="76" y="216" font-size="28" font-weight="800" fill="#dc2626">A</text>
+            <text x="76" y="248" font-size="15" font-weight="700" fill="var(--onyx)">e스포츠·게임존</text>
+            <text x="76" y="274" font-size="12" fill="var(--slate)">브롤스타즈 등 e스포츠 대회</text>
+            <text x="76" y="292" font-size="12" fill="var(--slate)">+ 기능성게임 체험·전시</text>
+          </g>
+          <g>
+            <rect x="364" y="176" width="292" height="176" rx="14" fill="#16a34a" fill-opacity="0.08" stroke="#16a34a" stroke-width="2"/>
+            <text x="388" y="216" font-size="28" font-weight="800" fill="#16a34a">B</text>
+            <text x="388" y="248" font-size="15" font-weight="700" fill="var(--onyx)">공공캐릭터 홍보관</text>
+            <text x="388" y="274" font-size="12" fill="var(--slate)">전국 지자체·공공기관 캐릭터</text>
+            <text x="388" y="292" font-size="12" fill="var(--slate)">전시·홍보 (본선 74종)</text>
+          </g>
+          <g>
+            <rect x="676" y="176" width="292" height="176" rx="14" fill="#0891b2" fill-opacity="0.08" stroke="#0891b2" stroke-width="2"/>
+            <text x="700" y="216" font-size="28" font-weight="800" fill="#0891b2">C</text>
+            <text x="700" y="248" font-size="15" font-weight="700" fill="var(--onyx)">콘텐츠문화존 (진흥원)</text>
+            <text x="700" y="274" font-size="12" fill="var(--slate)">대전 지역 콘텐츠 기업·창작자</text>
+            <text x="700" y="292" font-size="12" fill="var(--slate)">지원 성과 전시</text>
+          </g>
+
+          <!-- Row 2 -->
+          <g>
+            <rect x="52" y="372" width="292" height="176" rx="14" fill="#db2777" fill-opacity="0.08" stroke="#db2777" stroke-width="2"/>
+            <text x="76" y="412" font-size="28" font-weight="800" fill="#db2777">D</text>
+            <text x="76" y="444" font-size="15" font-weight="700" fill="var(--onyx)">완구·문구존</text>
+            <text x="76" y="470" font-size="12" fill="var(--slate)">캐릭터 기반 완구·문구</text>
+            <text x="76" y="488" font-size="12" fill="var(--slate)">전시·판매</text>
+          </g>
+          <g>
+            <rect x="364" y="372" width="292" height="176" rx="14" fill="#6647f0" fill-opacity="0.08" stroke="#6647f0" stroke-width="2"/>
+            <text x="388" y="412" font-size="28" font-weight="800" fill="#6647f0">E</text>
+            <text x="388" y="444" font-size="15" font-weight="700" fill="var(--onyx)">캐릭터굿즈존</text>
+            <text x="388" y="470" font-size="12" fill="var(--slate)">캐릭터 IP 기반 굿즈</text>
+            <text x="388" y="488" font-size="12" fill="var(--slate)">전시·판매·이벤트</text>
+          </g>
+          <g>
+            <rect x="676" y="372" width="292" height="176" rx="14" fill="#a16207" fill-opacity="0.08" stroke="#a16207" stroke-width="2"/>
+            <text x="700" y="412" font-size="28" font-weight="800" fill="#a16207">F</text>
+            <text x="700" y="444" font-size="15" font-weight="700" fill="var(--onyx)">코스프레·애니메이션존</text>
+            <text x="700" y="470" font-size="12" fill="var(--slate)">애니메이션 콘텐츠 전시</text>
+            <text x="700" y="488" font-size="12" fill="var(--slate)">+ 팬 참여 이벤트</text>
+          </g>
+
+          <text x="46" y="600" font-size="11.5" fill="var(--ash)">※ 6개 구역 명칭·내용은 "2026 대전콘텐츠페어 추진현황(8.13)" 부스배치도(안) 구역표 기준 — 구역 간 상대 위치는 개략도이며 실제 출입구·통로·부스번호는 배치도 사이트 확정본을 따름</text>
+        </svg>
+        <figcaption class="sub-note" style="margin-top:14px;">DCC 제2전시장을 A~F 6개 구역으로 나눈 개략 배치도입니다. 부스 하나하나의 정확한 위치·업체명은 위 "부스 배치도 사이트 열기" 링크(https://josephwta-arch.github.io/dcf-booth/)가 최종 기준입니다.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="exhibitors" class="band page" data-page="exhibitors">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">04 · Exhibitors</div>
+          <h2 class="sec-title">참가사 현황</h2>
+        </div>
+      </div>
+      <div class="panel-grid">
+        <div class="panel-body">
+          <p>참가업체 명단(연번·부스번호·업체간판명)은 구글시트에서 실시간으로 관리된다. 이 페이지는 게시된 정적 문서라 시트를 직접 불러오지 못하므로, 확정 스냅샷을 아래 표에 주기적으로 옮겨 적는 방식으로 운영한다. 상시 자동 반영이 필요하면 GitHub Pages 버전에서 gviz 연동으로 확인.</p>
+          <div class="panel-actions">
+            <a class="btn-ghost" href="https://docs.google.com/spreadsheets/d/1tm3RhCVes9t5NT0CiJn9S0t8ZEPjJbVElLUjIdXyFaY/edit" target="_blank" rel="noopener">참가사 구글시트 열기</a>
+          </div>
+        </div>
+        <dl class="meta-list">
+          <div><div class="m-k">2025 실적</div><div class="m-v">96개사 · 200부스</div></div>
+          <div><div class="m-k">2026 목표</div><div class="m-v">130개사 · 250부스</div></div>
+          <div><div class="m-k">확정 스냅샷</div><div class="m-v">업데이트 예정</div></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="character" class="page" data-page="character">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">05 · Public Character IP</div>
+          <h2 class="sec-title">공공캐릭터 — 4개 연계 프로그램 추진 현황</h2>
+        </div>
+        <p class="sec-note">대한민국 지자체·공공캐릭터 페스티벌 / 공공캐릭터 컨퍼런스 / 공공 IP 라이선싱 전략 컨설팅존 / 오픈 라이선싱 비즈매칭 · 구글드라이브 기본계획(안)·추진현황(8.13)·투표결과(8.21) 기준</p>
+      </div>
+
+      <div class="char-stats" id="char-stats"></div>
+
+      <div class="sub-grid" id="char-grid"></div>
+
+      <div class="sg-block" style="margin-top:40px;">
+        <h3>페스티벌 심사·시상 일정</h3>
+        <div class="gtimeline" id="char-timeline"></div>
+      </div>
+
+      <p class="sub-note">※ "확인 필요"로 표시된 항목은 자료에서 확정 정보를 찾지 못한 부분입니다 — 협력기관(한국문화콘텐츠라이센싱협회 KOCLA)에 확인 후 업데이트해주세요. 페스티벌 시상식 일자는 원문 자료 간 표기가 엇갈립니다(기본계획(안)_최종: 10.16(금) / 8.13 추진현황: 10.17(토)) — 확정본으로 갱신 필요.</p>
+    </div>
+  </section>
+
+  <section id="serious-game" class="band page" data-page="serious-game">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">06 · Serious Game</div>
+          <h2 class="sec-title">기능성게임 공모전 — 행사개요 및 추진 현황</h2>
+        </div>
+        <p class="sec-note">제1회 대한민국 기능성게임 공모전 · 실무추진위원회 진행사항 · 구글드라이브 자료 기준</p>
+      </div>
+
+      <div class="sg-pills" id="sg-pills"></div>
+
+      <div class="sg-block sg-split">
+        <div>
+          <h3>행사개요</h3>
+          <dl class="sg-facts" id="sg-facts"></dl>
+        </div>
+        <div class="sg-side">
+          <div class="m-k">부스 규모</div>
+          <div class="m-v">30부스 내외</div>
+          <div class="m-sub">대학 4개교 × 시연 2종 × 2부스(16) + 일반 DGCA 통합존 × 1종 × 2부스(14) · 기능성게임존 내 개방형 배치</div>
+        </div>
+      </div>
+
+      <div class="sg-block">
+        <h3>시상 계획</h3>
+        <div class="table-scroll">
+          <table class="plain" id="sg-awards"></table>
+        </div>
+        <p class="muted" style="font-size:12.5px;color:var(--ash);margin-top:10px;">2차 정례회의(8.20)에서 대학부·일반부 각각 대상+우수상+특별상 체계로 확대하는 안도 논의됨 — 시상식 일정과 함께 최종 확정 예정.</p>
+      </div>
+
+      <hr style="border:none;border-top:1px solid var(--bone);margin:44px 0 40px;">
+
+      <div class="sec-head" style="margin-bottom:24px;">
+        <div>
+          <h3 style="font-size:20px;letter-spacing:-0.02em;margin:0;color:var(--onyx);">기능성게임추진위원회 진행사항</h3>
+        </div>
+        <p class="sec-note">위원장 1 · 위원 5 · 자문위원 1 · 간사 1 (총 8명) + 대행사 배석</p>
+      </div>
+
+      <div class="sg-two-col">
+        <div>
+          <h4 style="margin-top:0;">추진 타임라인</h4>
+          <div class="gtimeline" id="sg-timeline"></div>
+        </div>
+        <div>
+          <h4 style="margin-top:0;">위원회 구성</h4>
+          <div class="table-scroll">
+            <table class="plain" id="sg-committee"></table>
+          </div>
+
+          <h4>대학별 협조요청 현황</h4>
+          <div class="sg-univ-grid" id="sg-univ"></div>
+
+          <h4>향후 결정 필요 사항</h4>
+          <ul class="sg-open-list" id="sg-open"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="subculture" class="page" data-page="subculture">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">07 · Subculture</div>
+          <h2 class="sec-title">서브컬처 참여형 콘텐츠</h2>
+        </div>
+        <p class="sec-note">운영단체 대전아마추어만화협회(DICU) · 구글드라이브 자료(계획서·특별프로그램 페이지·추진현황 8.13) 기준</p>
+      </div>
+
+      <div class="sub-grid" id="sub-grid"></div>
+
+      <p class="sub-note">※ "확인 필요"로 표시된 항목은 자료에서 확정 정보를 찾지 못한 부분입니다 — 협력기관(DICU) 확인 후 업데이트해주세요. 회색으로 표시된 내용은 2025년 실적 참고자료이며 2026년 확정 사항이 아닙니다.</p>
+    </div>
+  </section>
+
+  <section id="partners" class="page" data-page="partners">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">08 · Partner Ops</div>
+          <h2 class="sec-title">세부 프로그램 및 기관별 협력 추진 현황</h2>
+        </div>
+        <p class="sec-note">기관별 담당 프로그램 · 추진현황은 협의 진행에 따라 계속 갱신</p>
+      </div>
+      <div class="org-grid" id="org-grid"></div>
+    </div>
+  </section>
+
+  <section id="contacts" class="band page" data-page="contacts">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">09 · Contacts</div>
+          <h2 class="sec-title">관계자 연락처</h2>
+        </div>
+        <p class="sec-note">기관·담당자별 연락창구 · 이름·직위는 협약서·회의록 등 자료 확인분, 전화·이메일은 대부분 확인 필요</p>
+      </div>
+
+      <div id="contacts-list"></div>
+
+      <p class="sub-note">※ "확인 필요"로 표시된 연락처는 개인정보 보호를 위해 원문 자료에 기재되지 않았거나 아직 취합하지 못한 항목입니다 — 담당자에게 직접 확인 후 채워주세요.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="credit">
+  <div class="container" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; width:100%;">
+    <span>대전관광공사 전시기획팀 내부 운영 허브 · 확정 전 재확인 필요</span>
+    <span class="studio">Joseph</span>
+  </div>
+</footer>
+
+<script>
+  // ============================================================
+  // DATA — edit these three objects to update the whole page.
+  // ============================================================
+
+  const STAGE = {
+    days: ["10.16 (금)", "10.17 (토)", "10.18 (일)"],
+    slots: ["10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30"],
+    data: [
+      ["","","공공캐릭터 컨퍼런스","공공캐릭터 컨퍼런스","공공캐릭터 컨퍼런스","공공캐릭터 컨퍼런스","공공캐릭터 컨퍼런스","공공캐릭터 컨퍼런스","","","","","",""],
+      ["","","","공공캐릭터페스티벌 시상식 준비","","공공캐릭터페스티벌 시상식","","코스프레 퍼레이드 준비","","코스프레 퍼레이드","코스프레 인플루언서 싸인회","","코스프레 런웨이",""],
+      ["","","","","","","","애니가요제 준비","애니가요제","","애니디제잉","","",""]
+    ]
+  };
+
+  const PROGRAMS = [
+    { cat: "공식행사", name: "개막식", org: "대전시 · 공사", days: [1,0,0], date: "10.16(금)", place: "무대" },
+    { cat: "공식행사", name: "공공지자체캐릭터페스티벌 시상식", org: "대전시 · 공사 · 협회", days: [0,1,0], date: "10.17(토)", place: "무대" },
+    { cat: "공식행사", name: "기능성게임대회 시상식", org: "공사 · 기능성게임 추진위", days: [0,0,1], date: "10.18(일)", place: "무대" },
+
+    { cat: "① 공공캐릭터(IP) 중심 대표 콘텐츠 확대", name: "대한민국공공지자체캐릭터페스티벌", org: "공사 · 한국문화콘텐츠라이센싱협회", days: [0,0,0], date: "연중 (국민투표 실시)", place: "온라인" },
+    { cat: "① 공공캐릭터(IP) 중심 대표 콘텐츠 확대", name: "공공캐릭터 컨퍼런스", org: "공사 · 한국문화콘텐츠라이센싱협회", days: [1,0,0], date: "10.16(금)", place: "무대" },
+    { cat: "① 공공캐릭터(IP) 중심 대표 콘텐츠 확대", name: "공공캐릭터 '오픈라이선싱' 비즈매칭", org: "공사", days: [1,1,0], date: "10.16(금)~10.17(토)", place: "참가사 부스" },
+    { cat: "① 공공캐릭터(IP) 중심 대표 콘텐츠 확대", name: "공공IP 라이선싱 전략 컨설팅존", org: "한국문화콘텐츠라이센싱협회 · 한국저작권위원회", days: [1,1,0], date: "10.16(금)~10.17(토)", place: "별도 부스" },
+    { cat: "① 공공캐릭터(IP) 중심 대표 콘텐츠 확대", name: "꿈돌이 IP 상담", org: "공사", days: [1,1,1], date: "10.16(금)~10.18(일)", place: "꿈돌이 홍보관" },
+
+    { cat: "② Gamification 기반 교육·체험 콘텐츠 강화", name: "제1회 대한민국 기능성게임 공모전 (모두의 게임)", org: "추진위원회", days: [1,1,1], date: "10.16~10.18", place: "기능성게임존" },
+    { cat: "② Gamification 기반 교육·체험 콘텐츠 강화", name: "e스포츠 게임대회 (브롤스타즈)", org: "이스포츠경기장", days: [1,1,1], date: "10.16~10.18", place: "e스포츠 무대" },
+    { cat: "② Gamification 기반 교육·체험 콘텐츠 강화", name: "TCG (원신 · 유희왕)", org: "DICU · 이스포츠경기장", days: [0,1,1], date: "10.17~10.18", place: "B스포츠 무대" },
+    { cat: "② Gamification 기반 교육·체험 콘텐츠 강화", name: "보드게임작가존 운영", org: "보드게임 작가협회", days: [1,1,1], date: "10.16~10.18", place: "별도 보드게임존" },
+
+    { cat: "③ 서브컬처 기반 참여형 콘텐츠 고도화", name: "코스튬 퍼레이드", org: "DICU", days: [0,1,0], date: "10.17(토)", place: "전시홀 내" },
+    { cat: "③ 서브컬처 기반 참여형 콘텐츠 고도화", name: "코스튬플레이 런웨이", org: "DICU", days: [0,1,0], date: "10.17(토)", place: "무대" },
+    { cat: "③ 서브컬처 기반 참여형 콘텐츠 고도화", name: "이타샤 차량전시", org: "DICU", days: [1,1,1], date: "10.16~10.18", place: "전시홀 내" },
+    { cat: "③ 서브컬처 기반 참여형 콘텐츠 고도화", name: "애니디제잉", org: "DICU", days: [0,0,1], date: "10.18(일)", place: "무대" },
+    { cat: "③ 서브컬처 기반 참여형 콘텐츠 고도화", name: "애니송 콘테스트", org: "DICU", days: [0,0,1], date: "10.18(일)", place: "무대" },
+    { cat: "③ 서브컬처 기반 참여형 콘텐츠 고도화", name: "유명 코스프레 인플루언서 사인회", org: "DICU", days: [0,1,0], date: "10.17(토)", place: "무대" },
+    { cat: "③ 서브컬처 기반 참여형 콘텐츠 고도화", name: "잇츠하비", org: "잇츠하비", days: [1,1,1], date: "10.16~10.18", place: "잇츠하비 부스" },
+
+    { cat: "기타", name: "한국인은 사격이지", org: "DICU", days: [1,1,1], date: "10.16~10.18", place: "—" },
+    { cat: "기타", name: "마인크래프트 블록쌓기", org: "DICU", days: [1,1,1], date: "10.16~10.18", place: "—" },
+    { cat: "기타", name: "나만의 캐릭터 굿즈 만들기 (캐릭터유니버스)", org: "아누타", days: [1,1,1], date: "10.16~10.18", place: "—" }
+  ];
+
+  const ORGS = [
+    { name: "한국문화콘텐츠라이센싱협회", programs: ["대한민국지자체공공캐릭터페스티벌", "공공캐릭터 컨퍼런스", "공공 IP 라이선싱 전략 컨설팅존", "오픈 라이선싱 비즈매칭"], status: "위·수탁 협약 체결(5.22) — 페스티벌 국민투표 최종 958,942표로 종료(8.21), 74종 본선 진출. 컨퍼런스·컨설팅존·비즈매칭 3개 프로그램은 담당기관·운영일만 확정, 세부 프로그램 확인 필요. 자세한 내용은 <a href=\"#character\">공공캐릭터 섹션</a> 참고" },
+    { name: "기능성게임 추진위원회", programs: ["제1회 대한민국 기능성게임 공모전", "전시 시연 (콘텐츠페어 내)"], status: "2차 정례회의(8.20) 완료 — 접수기간·평가체계·부스구성 확정, 3자 업무협약 체결(8.21). 자세한 진행사항은 <a href=\"#serious-game\">기능성게임 섹션</a> 참고" },
+    { name: "DICU (대전아마추어만화협회)", programs: ["코스프레런웨이", "코스프레퍼레이드", "인플루언서(네오) 팬싸인회", "이타샤 전시", "한국인은 사격이지", "마인크래프트 블록쌓기", "애니송콘테스트", "애니디제잉"], status: "위·수탁 협약 체결(7.27) — 프로그램별 세부 운영정보 정리 중, 일부 항목 확인 필요. 자세한 내용은 <a href=\"#subculture\">서브컬처 섹션</a> 참고" },
+    { name: "이스포츠경기장", programs: ["TCG 대회 (토)", "브롤스타즈 모바일 대회 (일)"], status: "" },
+    { name: "홍보마케팅팀", programs: ["꿈돌이 홍보관"], status: "" },
+    { name: "융합사업팀", programs: ["딜라잇 엑스포 브릿지 연계"], status: "" },
+    { name: "축제행사팀", programs: ["빵축제 연계"], status: "" },
+    { name: "아누타", programs: ["AI 아트스쿨"], status: "" },
+    { name: "잇츠하비", programs: ["잇츠하비 부스 운영"], status: "" }
+  ];
+
+  // 제1회 대한민국 기능성게임 공모전 — 행사개요 및 추진위원회 진행사항
+  // 출처: 구글드라이브 "기능성게임" 폴더 내 기본계획(안)/회의록/공문(2026.6.25~8.27)
+  const SG = {
+    pills: [
+      { cls: "done", label: "추진위 2차 회의", lbl: "완료 (8.20)" },
+      { cls: "done", label: "한국콘텐츠학회 3자 업무협약", lbl: "체결 (8.21)" },
+      { cls: "progress", label: "대학 RISE·총장상 협조요청", lbl: "회신 대기중" },
+      { cls: "todo", label: "출품 접수", lbl: "9.1~9.30 예정" }
+    ],
+    facts: [
+      { k: "행사명", v: "제1회 대한민국 기능성게임 공모전" },
+      { k: "기간", v: "2026. 10. 16.(금) ~ 18.(일), 3일간" },
+      { k: "장소", v: "DCC 제2전시장 內 기능성게임존" },
+      { k: "참가부문", v: "대학부 / 일반(기업)부" },
+      { k: "참가대상", v: "전국 대학생 및 게임·콘텐츠 개발자·기업 등" },
+      { k: "공모분야", v: "국방·시니어·수리(교육)·접근성(Accessible) 등 — 전 분야 개방" },
+      { k: "운영방식", v: "개발 → 공모·선정 → 전시·시연 → 전문가평가 → 산업·공공 활용 연계" },
+      { k: "접수기간", v: "2026. 9. 1.(화) ~ 9. 30.(수), 온라인 접수 일원화" },
+      { k: "주관체계", v: "대전콘텐츠페어 기능성게임 추진위원회 · 대전관광공사" },
+      { k: "산업연계", v: "대전게임콘텐츠협회(DGCA), 지역 게임기업 및 대학" }
+    ],
+    awards: {
+      head: ["시상 구분", "규모", "내용 및 현황"],
+      rows: [
+        ["대상", "1", "대전광역시장상 — 대학부 확보, 일반(기업)부는 추가 수여 요청 중"],
+        ["우수상", "1", "대학 총장상 또는 산학협력단장상 (대학별 협의, 목원대 결재 진행 중)"],
+        ["특별상", "3", "시니어상 · 접근성(Accessible)상 · AbleGamers상(자문위원 별도 선정)"]
+      ]
+    },
+    committee: {
+      head: ["구분", "소속", "직위 / 성명", "주요 역할"],
+      rows: [
+        ["위원장", "대전게임콘텐츠협회(DGCA)", "회장 / 박근만", "추진 총괄, 업체·산업 연계"],
+        ["위원", "DGCA · (주)비주얼라이트", "수석부회장(대표) / 정성근", "업체·산업 연계, 브랜딩·평가"],
+        ["위원", "DGCA · (주)에이디엠아이", "부회장(대표) / 김문식", "업체·산업 연계"],
+        ["위원", "배재대학교 게임공학과", "교수 / 이영호", "콘텐츠 기획·평가체계, 대학 연계개발"],
+        ["위원", "목원대학교 게임소프트웨어공학과", "교수 / 민병원", "콘텐츠 기획·평가체계, 대학 연계개발"],
+        ["위원", "우송대학교 테크노미디어융합학부", "교수 / 서경섭", "콘텐츠 기획·평가체계, 대학 연계개발"],
+        ["자문위원", "마음E&A (대전이스포츠경기장)", "대표 / 김윤중", "e스포츠·컨퍼런스·해외 연계 자문"],
+        ["간사", "대전관광공사 전시기획팀", "차장 / 박상혁", "사무국 (일정·예산·총괄)"],
+        ["배석", "디앤씨 컴퍼니 (행사 대행사)", "매니저 / 김주은", "홍보·부스·현장 운영 대행 (2차부터 필참)"]
+      ]
+    },
+    timeline: [
+      { date: "6.25~7.8", status: "done", title: "기능성게임 추진위원회 기본계획(안) 수립", desc: "위원회 구성기준·예산(830천원) 확정, 수 차례 수정 후 7.8 최종(안) 확정" },
+      { date: "7.21", status: "done", title: "위원 위촉장 준비", desc: "위원장·위원·자문위원·간사 8명 위촉장(안) 작성" },
+      { date: "7.23", status: "done", title: "제1차 정례회의(킥오프)", desc: "DCC 제1전시장 206호. 명칭 '제1회 대한민국 기능성게임 공모전' 확정, 공모분야 전 분야 개방('등' 부기), '장애인'→'접근성(Accessible)' 용어 통일, 참가부문 대학부·일반부 2개 확정" },
+      { date: "8.5~21", status: "done", title: "한국콘텐츠학회 3자 업무협약 추진", desc: "대전관광공사·DGCA·한국콘텐츠학회 업무협약서 수 차례 수정 후 8.21 체결" },
+      { date: "8.18~27", status: "progress", title: "배재대·목원대·우송대 RISE사업 연계협력 및 총장상 요청 공문 발송", desc: "3개 대학 산학협력단 RISE사업단 앞 공문 발송. 목원대는 총장상 결재 진행 중·2개 학과 학생 약 60명 참여 확보, 배재대·우송대는 회신 대기" },
+      { date: "8.20", status: "done", title: "제2차 정례회의", desc: "DCC 제2전시장 302호. 접수기간(9.1~9.30) 확정, 평가배점 확정(일반부 100% / 대학부 80%+현장평가 20%), 부스 개방형 전환·30부스 내외 확정" },
+      { date: "8.21", status: "progress", title: "대전시장상 추가 요청 (일반부)", desc: "대학부 시장상 1점은 확보, 일반(기업)부 시장상 또는 시의장상 추가 수여를 대전시에 재요청 중" },
+      { date: "9.1~9.30", status: "todo", title: "출품 접수 (온라인)", desc: "구글폼 등 온라인 채널 일원화, 브랜드명·신청서 양식 확정 즉시 공고" },
+      { date: "9월 중", status: "todo", title: "제3차 정례회의", desc: "중간 점검·시연 리허설, 심사위원 인원·구성 및 현장평가단 섭외 확정" },
+      { date: "10월 초", status: "todo", title: "출품작 전문가 평가", desc: "" },
+      { date: "10.16~18", status: "todo", title: "현장 시연·체험·현장평가 및 시상식", desc: "DCC 제2전시장 기능성게임존" }
+    ],
+    universities: [
+      { name: "배재대학교", desc: "게임공학과 이영호 교수 위원 참여 · RISE사업 연계협력 및 총장상 수여 협조 요청 공문 발송(8.24) · 회신 대기중" },
+      { name: "목원대학교", desc: "게임소프트웨어공학과 민병원 교수 위원 참여 · 공문 발송(8.21) · 총장상 결재 진행 중, RISE 예산 지원 회신 예정, 2개 학과 학생 약 60명 참여 확보 (3개교 중 가장 진척)" },
+      { name: "우송대학교", desc: "테크노미디어융합학부 서경섭 교수 위원 참여 · RISE사업 연계협력 및 총장상 수여 협조 요청 공문 발송(8.21) · 회신 대기중" }
+    ],
+    openItems: [
+      "심사위원 인원(5인 또는 7인) 및 지역/서울 구성 비중 — 제3차 회의에서 확정",
+      "시상식 정확 일자·시각(토요일 vs 일요일) — 메인무대 운영 일정과 연계 확정 필요",
+      "일반(기업)부 대전광역시장상 또는 시의장상 추가 확보 여부",
+      "대학부·일반부 시상 구조 확대안(대상+우수상+특별상) 최종 확정"
+    ]
+  };
+
+  // 서브컬처 참여형 콘텐츠 (운영 DICU) — 개별 프로그램 8종
+  // 출처: 구글드라이브 서브컬처 폴더 — DICU 계획서(2025/2026), special-programs.html(특별프로그램 페이지),
+  //       "2026 대전콘텐츠페어 추진현황 및 향후계획(8.13).pdf"
+  // v: 확정된 2026년 정보 / ref: 2025년 실적 등 참고자료(회색 표시) / missing: 확인 필요
+  const SUB = [
+    {
+      name: "코스프레런웨이",
+      slogan: "대전 코스프레 런웨이 공연",
+      badge: { cls: "progress", label: "무대 경연" },
+      imgTag: "IMG", imgDesc: "T자형 특설무대 코스프레 퍼포먼스 사진",
+      facts: [
+        { k: "일시/장소", v: "2026.10.17(토) 15:00~16:30 · DCC 제2전시장 특설무대" },
+        { k: "참가규모", v: "15~20팀 (1팀 1~3인, 3분 이내 연출)" },
+        { k: "심사/시상", v: "심사위원 4인 · 100점 만점 · 부문별 시상" },
+        { k: "참가현황", missing: true },
+        { k: "운영방법 상세", missing: true, ref: "2025년 실적(참고): T자형 무대 워킹+퍼포먼스, MR·영상 활용 / 심사기준 무대연출·무대활용·의상퀄리티·헤어메이크업 / 2025년 전국 17팀 참가" }
+      ]
+    },
+    {
+      name: "코스프레퍼레이드",
+      slogan: "대전 코스프레 퍼레이드",
+      badge: { cls: "progress", label: "무대 경연" },
+      imgTag: "IMG", imgDesc: "코스튬플레이어 행사장 순회 퍼레이드 사진",
+      facts: [
+        { k: "일시/장소", v: "2026.10.16(금) 13:00~14:00 · 행사장 내 순회", ref: "원문 자료에는 \"10.16(토)\"로 기재 — 10.16은 실제 금요일이라 요일 표기 오류로 보임, DICU 확인 필요" },
+        { k: "참가규모", v: "코스어 약 100여 명 순회 (모집 중)" },
+        { k: "참가현황", missing: true },
+        { k: "운영방법 상세", missing: true, ref: "2025년 실적(참고): 약 60명 참가, 인플루언서 '마이부'·'루아' 및 대형 코스프레 섭외, 중간 포토존 촬영" }
+      ]
+    },
+    {
+      name: "인플루언서(네오) 팬싸인회",
+      slogan: "인플루언서 초청 사인회 <네오>",
+      badge: { cls: "todo", label: "10.17 한정" },
+      imgTag: "IMG", imgDesc: "인플루언서 '네오' 프로필 및 사인회 무대 사진",
+      facts: [
+        { k: "개요", v: "310만 틱톡커·코스어 '네오'를 초청해 메인 무대에서 사인회와 팬서비스 촬영 진행" },
+        { k: "일시", v: "2026.10.17(토) 14:00~15:00" },
+        { k: "모집인원", v: "선착순 100명" },
+        { k: "SNS", v: "틱톡 310만 · 인스타그램 40만 · 유튜브 11만" }
+      ]
+    },
+    {
+      name: "이타샤 전시",
+      slogan: "이타샤 차량전시",
+      badge: { cls: "progress", label: "상시 전시" },
+      imgTag: "IMG", imgDesc: "이타샤(캐릭터 래핑) 차량 전시 사진",
+      facts: [
+        { k: "일시/장소", v: "2026.10.16~10.18, 3일간 · 전시장 내·외부 상시 전시" },
+        { k: "전시규모", v: "30대 내외" },
+        { k: "참가자 명단", missing: true }
+      ]
+    },
+    {
+      name: "한국인은 사격이지",
+      slogan: "다다다! 너프건 사격장 — 대한민국은 사격이지 🎯",
+      badge: { cls: "done", label: "상시 체험" },
+      imgTag: "IMG", imgDesc: "너프건(미니건)으로 과녁을 맞히는 사격 체험 부스 사진",
+      facts: [
+        { k: "운영방법", v: "미니건형 너프건으로 과녁을 맞히는 밀리터리 로망 실현 사격 체험 — 한 발씩 쏘는 기존 방식 대신 연사 사격으로 재미를 더한 참여형 콘텐츠" },
+        { k: "일시", v: "2026.10.16~10.18, 3일간" },
+        { k: "운영시간", v: "행사시간 내" },
+        { k: "모집인원", v: "제한 없음 · 축제에 참여하는 시민 누구나" }
+      ]
+    },
+    {
+      name: "마인크래프트 블록쌓기",
+      slogan: "큐브 빌더 놀이터",
+      badge: { cls: "done", label: "가족·키즈" },
+      imgTag: "IMG", imgDesc: "자석큐브 블록을 쌓고 노는 놀이 공간 사진",
+      facts: [
+        { k: "운영방법", v: "인기 게임 방식의 자석큐브 블록을 쌓고 만들며 노는 가족·어린이 놀이 공간 — 블록을 자유롭게 쌓으며 창의력을 키우는 상시 체험" },
+        { k: "일시", v: "2026.10.16~10.18, 3일간" },
+        { k: "운영시간", v: "10:00~18:00" },
+        { k: "비고", v: "자료상 공식 명칭은 \"큐브 빌더 놀이터\" — 자석큐브 블록쌓기 콘텐츠로 마인크래프트와 컨셉이 동일" }
+      ]
+    },
+    {
+      name: "애니송콘테스트",
+      slogan: "대전 애니 가요제",
+      badge: { cls: "progress", label: "무대 경연" },
+      imgTag: "IMG", imgDesc: "특설무대 노래 경연 장면(지난 무대 사진)",
+      facts: [
+        { k: "개요", v: "게임·애니메이션 OST를 부르는 무대 노래 경연 대회" },
+        { k: "일시/장소", v: "2026.10.18(일) 15:00~16:00 · DCC 제2전시장 특설무대" },
+        { k: "모집기간", v: "2026.9.1(화) ~ 10.5(월) · 대전아마추어만화협회(DICU) 접수" },
+        { k: "대회구성", v: "1~3인 1팀 · 총 10여 팀 출전 · 팀당 3분 이내 무대 연출" }
+      ]
+    },
+    {
+      name: "애니디제잉",
+      slogan: null,
+      badge: { cls: "todo", label: "정보 확인 중" },
+      imgTag: "IMG", imgDesc: "애니 디제잉 무대 사진",
+      facts: [
+        { k: "일시/장소", v: "2026.10.18(일) · 메인무대 (담당: DICU)" },
+        { k: "디제이 정보", missing: true, ref: "2025년 실적(참고): 대전 애니 디제잉팀 '애니송심당'이 폐막 디제잉 진행" },
+        { k: "운영방법 상세", missing: true }
+      ]
+    }
+  ];
+
+  // 공공캐릭터(IP) — 4개 연계 프로그램 (페스티벌 / 컨퍼런스 / 컨설팅존 / 비즈매칭)
+  // 출처: 구글드라이브 "2026 대한민국지자체공공캐릭터페스벌 기본계획(안)_최종.pdf",
+  //       "2026 대전콘텐츠페어 추진현황 및 향후계획(8.13).pdf", "투표수(0821).xlsx",
+  //       "5. 홍보 브로슈어_2026 대한민국 지자체공공캐릭터페스티벌.pdf", "참가신청목록.xlsx"/특이사항.txt
+  // v: 확정된 2026년 정보 / ref: 참고·출처 상충 메모 / missing: 확인 필요
+  const CHAR = {
+    stats: [
+      { k: "국민 온라인투표 (최종·8.21 종료)", v: "958,942표", sub: "목표 100만 표 대비 95.9% · 2025년 38만 표" },
+      { k: "본선 진출 캐릭터", v: "74종", sub: "정부·지자체 22 · 공공기관 42 · 축제 10 (총 92종 출품)" },
+      { k: "참가기관 (8.13 기준)", v: "92개 기관", sub: "2026 목표 50개 기관 대비 184% · 2025년 34개 기관" },
+      { k: "시상 규모", v: "총 20개", sub: "본상 12(대상·최우수·우수·장려 각3) + 특별상 8" }
+    ],
+    events: [
+      {
+        name: "대한민국 지자체·공공캐릭터 페스티벌",
+        slogan: "KOREA PUBLIC CHARACTER FESTIVAL 2026",
+        badge: { cls: "done", label: "국민투표 종료" },
+        imgTag: "IMG", imgDesc: "시상식·전시 현장 사진 또는 공식 포스터",
+        facts: [
+          { k: "주최·주관", v: "대전관광공사, 한국문화콘텐츠라이센싱협회(KOCLA) · 후원(예정) 대전시·문화체육관광부·행정안전부" },
+          { k: "응모대상", v: "정부·지자체 / 공공기관 / 축제(문화재단) — 3개 부문" },
+          { k: "응모기간", v: "2026.5.11(월) ~ 7.10(금) · 전시부스 참가 접수도 동일 기간" },
+          { k: "참가현황", v: "총 92종 출품 → 74종 본선 진출 <span class=\"hi\">(정부·지자체 22 / 공공기관 42 / 축제 10)</span> · 관내(대전) 출품: 배재대(나섬이)·유성구(유성이)·중구(중구할매&손자중구)" },
+          { k: "심사방식", v: "전문가 심사 50% + 국민 온라인투표 50% 합산 · 심사위원 7명(해외 2명 — 일본·중국) · 운영위원회 12명(구성 예정)" },
+          { k: "국민투표", v: "2026.7.20~8.21 · SNS 인증투표, 1인 1일 1회(부문별 2개씩 총 6개 캐릭터 선택) · <span class=\"hi\">최종 958,942표</span>(목표 100만표 대비 95.9%)" },
+          { k: "결과발표", v: "예선결과 7월 중 · 최종 수상결과 2026.9.4(금) 홈페이지 공지 및 개별 통보" },
+          { k: "시상식", v: "총 20개 시상 · 대전컨벤션센터 제2전시장 메인무대", ref: "일자 표기 상충 — 기본계획(안)_최종.pdf: 10.16(금) 14:00 예정 / 8.13 추진현황 문서: 10.17(토) — 확정본 확인 필요 (PROGRAMS 데이터는 8.13 문서 기준 10.17(토)로 반영 중)" },
+          { k: "부스·참가비", v: "공공캐릭터 패키지(기본부스 3×3m) 조기 150만원/정가 200만원 · 독립부스(바닥 6×6m, 장치별도) 조기 100만원/정가 130만원 · 전시 미참가(홍보만) 30만원 · 참관객 무료" }
+        ]
+      },
+      {
+        name: "공공캐릭터 컨퍼런스",
+        slogan: "산업관계자 대상 · 우수사례·라이선싱 전략 공유",
+        badge: { cls: "todo", label: "세부 프로그램 수립중" },
+        imgTag: "IMG", imgDesc: "컨퍼런스 발표 현장 사진 또는 세션 안내 자료",
+        facts: [
+          { k: "주최·담당", v: "대전관광공사 · 한국문화콘텐츠라이센싱협회(KOCLA)" },
+          { k: "일정", v: "2026.10.16(금)" },
+          { k: "대상", v: "산업관계자" },
+          { k: "내용", v: "전국 우수 활용사례(관광 연계·굿즈 개발·라이선싱 사업화 등) 발표로 성공모델 확산 · 지식재산권 관리·라이선싱 전략·민관 협업 사례 공유로 실무 중심 정보 제공" },
+          { k: "발표자·세부 세션", missing: true },
+          { k: "참가신청 방법", missing: true }
+        ]
+      },
+      {
+        name: "공공 IP 라이선싱 전략 컨설팅존",
+        slogan: "산업관계자 대상 · 1:1 무료 전문 컨설팅",
+        badge: { cls: "todo", label: "세부 프로그램 수립중" },
+        imgTag: "IMG", imgDesc: "컨설팅존 부스 운영 사진",
+        facts: [
+          { k: "주최·담당", v: "한국문화콘텐츠라이센싱협회(KOCLA) · 한국저작권위원회" },
+          { k: "일정", v: "2026.10.16(금) ~ 10.17(토)" },
+          { k: "대상", v: "산업관계자 · 전시부스 참가기관 공통 혜택으로 무료 이용" },
+          { k: "내용", v: "IP 보호·계약·활용 전략 전반에 대한 현장 전문가 1:1 컨설팅 · 실무 경험 보유 전문가 참여로 즉시 적용 가능한 사업화 전략 제시" },
+          { k: "참고자료", v: "구글드라이브에 \"공공 IP 레벨 자가진단 체크리스트\"(구글폼 연동 스프레드시트) 존재 — 목적정의·권리구조·세계관서사·콘텐츠운영·팬덤관리·굿즈상품화·산업연계성·유통구조·조직운영·지속가능재원 10개 항목으로 IP 레벨(1~5) 자동 산출. 컨설팅존 사전진단 도구로 추정되나 공식 연계 여부는 확인 필요" },
+          { k: "컨설턴트·신청", missing: true }
+        ]
+      },
+      {
+        name: "공공캐릭터 '오픈 라이선싱' 비즈매칭",
+        slogan: "산업관계자 대상 · 사전 매칭 기반 B2B",
+        badge: { cls: "todo", label: "세부 프로그램 수립중" },
+        imgTag: "IMG", imgDesc: "비즈매칭 상담 부스 사진",
+        facts: [
+          { k: "주최·담당", v: "대전관광공사" },
+          { k: "일정", v: "2026.10.16(금) ~ 10.17(토)" },
+          { k: "대상", v: "산업관계자" },
+          { k: "내용", v: "지자체·공공기관 보유 캐릭터 IP와 콘텐츠 기업 간 사전 수요조사 기반 1:1 매칭 운영 · 상담 결과 기반 후속 협의·계약 연계로 지속형 협업 체계 구축" },
+          { k: "추진방식", v: "타겟 바이어 DB 구축(국내외 라이선싱·콘텐츠·유통기업) → 바이어 유형별 맞춤 초청장 발송 → 한국콘텐츠진흥원·라이선싱협회 등 유관기관 협조 → 교통·숙박 일부 인센티브 지원" },
+          { k: "매칭현황", missing: true }
+        ],
+        extraTable: {
+          title: "바이어 유형별 유치 전략",
+          head: ["구분", "세부 유형", "요구 캐릭터 상태", "유치 포인트"],
+          rows: [
+            ["IP 개발 바이어", "리브랜딩/기획 (캐릭터 기획사·디자인 에이전시)", "기본 캐릭터 디자인(초기 상태 가능)", "캐릭터 개선 가능성, 리뉴얼 사례 제시"],
+            ["IP 개발 바이어", "스토리 기획사·콘텐츠 개발사", "디자인만 존재(스토리 없음)", "세계관 구축 및 IP 확장 가능성"],
+            ["IP 개발 바이어", "콘텐츠 액셀러레이터·지원기관", "무명 캐릭터, 사업화 경험 없음", "성장 가능성, 공공 협력"],
+            ["IP 사업화 바이어", "라이선싱 에이전시·IP 유통사", "기본 세계관·캐릭터 설정·디자인 가이드 보유", "IP 수익화 가능성 및 확장성 제시"],
+            ["IP 사업화 바이어", "콘텐츠 기업·캐릭터 스타트업", "상품화 가능 디자인·시제품(굿즈)·타겟층 명확", "상품화 성공 사례 및 수익 모델 제시"],
+            ["IP 사업화 바이어", "생활소비재·패션·F&B 기업", "브랜드에 따른 변형 가능, 협력 사례/시안", "콜라보 사례 및 브랜드 시너지 강조"],
+            ["유통·확산 바이어", "굿즈 제작사·제조업체", "단순화된 디자인, 양산 가능한 형태", "즉시 판매 가능한 상품 및 트렌드 제시"],
+            ["유통·확산 바이어", "백화점·편집샵·팝업스토어 운영사", "상품 라인업(최소 3종), 패키징·가격 구성", "유통 채널 확보 및 판매 데이터 제시"],
+            ["유통·확산 바이어", "이커머스·콘텐츠 플랫폼", "팬층/SNS 기반 + 콘텐츠 지속생산 구조", "온라인 확산성 및 팬덤 기반 강조"]
+          ]
+        }
+      }
+    ],
+    timeline: [
+      { date: "5.11~7.10", status: "done", title: "콘테스트 응모 접수", desc: "정부·지자체/공공기관/축제 3개 부문 · 전시부스 참가 접수 동일기간 · 총 92종 출품" },
+      { date: "7월 중", status: "done", title: "예선 심사(서류 100%)", desc: "정량·정성 평가로 74종 본선 진출(정부·지자체 22 / 공공기관 42 / 축제 10) 확정" },
+      { date: "7.20~8.21", status: "done", title: "국민 온라인투표", desc: "SNS 인증투표 · 최종 958,942표(목표 100만표 대비 95.9%, 2025년 38만표)" },
+      { date: "8.14", status: "progress", title: "전문가 본선심사", desc: "심사위원 7명(해외 2명: 일본·중국) 평가 — 8.13 추진현황 문서 기준 예정일, 실제 진행결과 확인 필요" },
+      { date: "9.4(금)", status: "todo", title: "최종 수상결과 발표", desc: "홈페이지 공지 및 수상기관 개별 통보" },
+      { date: "10.16~17", status: "todo", title: "시상식", desc: "총 20개 시상 · 정확한 일자(10.16 금 또는 10.17 토)는 원문 자료 상충 — 확인 필요" }
+    ]
+  };
+
+  // 관계자 연락처 — 기관·담당자별 연락창구
+  // 출처: 협약서·회의록 등에서 확인된 소속·성명·직위만 반영 / 전화·이메일은 개인정보라 원문에 없거나
+  //       마스킹되어 있어 대부분 "확인 필요"로 표시 (전시기획팀 대표번호만 부스신청서 양식에 명시되어 있음)
+  const CONTACTS = [
+    {
+      group: "대전관광공사 전시기획팀 (주관 · 내부)",
+      rows: [
+        ["전시기획팀 대표 문의", "행사 대표 창구", "042-250-6232", "djcontentsfair@gmail.com", "2026 대전콘텐츠페어 전시부스 참가신청서 기재 연락처"],
+        ["박상혁", "차장 · 기능성게임 추진위원회 간사", null, null, "사무국 총괄(일정·예산)"]
+      ]
+    },
+    {
+      group: "한국문화콘텐츠라이센싱협회 (KOCLA)",
+      rows: [
+        ["담당자", "공공캐릭터 페스티벌 기획·심사·운영 위탁 · 컨퍼런스·컨설팅존·비즈매칭 공동주관", null, null, "위·수탁 협약 체결 2026.5.22"]
+      ]
+    },
+    {
+      group: "대전아마추어만화협회 (DICU)",
+      rows: [
+        ["담당자", "서브컬처 참여형 콘텐츠(코스프레·이타샤 등) 운영 위탁", null, null, "위·수탁 협약 체결 2026.7.27"]
+      ]
+    },
+    {
+      group: "기능성게임 추진위원회",
+      rows: [
+        ["박근만", "위원장 · 대전게임콘텐츠협회(DGCA) 회장", null, null, "추진 총괄, 업체·산업 연계"],
+        ["정성근", "위원 · DGCA 수석부회장 / (주)비주얼라이트 대표", null, null, "업체·산업 연계, 브랜딩·평가"],
+        ["김문식", "위원 · DGCA 부회장 / (주)에이디엠아이 대표", null, null, "업체·산업 연계"],
+        ["이영호", "위원 · 배재대학교 게임공학과 교수", null, null, "콘텐츠 기획·평가체계, 대학 연계개발"],
+        ["민병원", "위원 · 목원대학교 게임소프트웨어공학과 교수", null, null, "콘텐츠 기획·평가체계, 대학 연계개발"],
+        ["서경섭", "위원 · 우송대학교 테크노미디어융합학부 교수", null, null, "콘텐츠 기획·평가체계, 대학 연계개발"],
+        ["김윤중", "자문위원 · 마음E&A(대전이스포츠경기장) 대표", null, null, "e스포츠·컨퍼런스·해외 연계 자문"],
+        ["김주은", "행사 대행사 매니저 · 디앤씨 컴퍼니", null, null, "홍보·부스·현장 운영 대행"]
+      ]
+    },
+    {
+      group: "한국저작권위원회",
+      rows: [
+        ["담당자", "공공 IP 라이선싱 전략 컨설팅존 공동운영(KOCLA와 공동)", null, null, ""]
+      ]
+    },
+    {
+      group: "이스포츠경기장",
+      rows: [
+        ["담당자", "TCG(원신)·브롤스타즈 등 e스포츠 대회 운영", null, null, ""]
+      ]
+    },
+    {
+      group: "대전광역시 (주최)",
+      rows: [
+        ["담당자", "주최 기관 · 개막식·후원·시상식 협의", null, null, ""]
+      ]
+    },
+    {
+      group: "사내 협업부서",
+      rows: [
+        ["홍보마케팅팀", "꿈돌이 홍보관 담당", null, null, ""],
+        ["융합사업팀", "딜라잇 엑스포 브릿지 연계 담당", null, null, ""],
+        ["축제행사팀", "빵축제(10.17~18) 연계 담당", null, null, ""]
+      ]
+    },
+    {
+      group: "기타 참가업체",
+      rows: [
+        ["아누타", "나만의 캐릭터 굿즈 만들기(캐릭터유니버스) 운영", null, null, ""],
+        ["잇츠하비", "잇츠하비 부스 운영", null, null, ""]
+      ]
+    }
+  ];
+
+  // ============================================================
+  // RENDER
+  // ============================================================
+
+  function buildOwners(dayArr) {
+    const owners = new Array(dayArr.length).fill(-1);
+    let i = 0;
+    while (i < dayArr.length) {
+      if (!dayArr[i]) { i++; continue; }
+      let j = i + 1;
+      while (j < dayArr.length && dayArr[j] === dayArr[i]) j++;
+      for (let k = i; k < j; k++) owners[k] = i;
+      i = j;
+    }
+    return owners;
+  }
+
+  function renderStage() {
+    const owners = STAGE.data.map(buildOwners);
+    const tbody = document.getElementById("stage-body");
+    let html = "";
+    STAGE.slots.forEach((slot, i) => {
+      const end = STAGE.slots[i + 1] || (parseInt(slot) + 1) + ":00";
+      html += `<tr><td class="time">${slot}–${end}</td>`;
+      STAGE.days.forEach((_, d) => {
+        const owner = owners[d][i];
+        if (owner === -1) {
+          html += `<td><div class="slot-empty"></div></td>`;
+        } else if (owner === i) {
+          let span = 1;
+          while (owners[d][i + span] === owner) span++;
+          html += `<td rowspan="${span}"><div class="slot-chip">${STAGE.data[d][i]}</div></td>`;
+        }
+      });
+      html += `</tr>`;
+    });
+    tbody.innerHTML = html;
+  }
+
+  function renderPrograms(filter) {
+    const tbody = document.getElementById("program-body");
+    let html = "";
+    let lastCat = null;
+    PROGRAMS.forEach(p => {
+      if (filter !== "전체" && !p.cat.startsWith(filter)) return;
+      if (p.cat !== lastCat) {
+        html += `<tr class="cat-row"><td colspan="7">${p.cat}</td></tr>`;
+        lastCat = p.cat;
+      }
+      html += `<tr class="prog-row">
+        <td class="p-name">${p.name}</td>
+        <td class="p-org">${p.org}</td>
+        <td><span class="daydot ${p.days[0] ? "on" : "off"}"></span></td>
+        <td><span class="daydot ${p.days[1] ? "on" : "off"}"></span></td>
+        <td><span class="daydot ${p.days[2] ? "on" : "off"}"></span></td>
+        <td class="p-date">${p.date}</td>
+        <td class="p-place">${p.place}</td>
+      </tr>`;
+    });
+    tbody.innerHTML = html;
+  }
+
+  function renderFilters() {
+    const cats = ["전체", "공식행사", "①", "②", "③", "기타"];
+    const labels = { "①": "① IP", "②": "② 게이미피케이션", "③": "③ 서브컬처" };
+    const el = document.getElementById("filters");
+    el.innerHTML = cats.map((c, i) =>
+      `<button class="${i === 0 ? "active" : ""}" data-cat="${c}">${labels[c] || c}</button>`
+    ).join("");
+    el.addEventListener("click", e => {
+      const btn = e.target.closest("button");
+      if (!btn) return;
+      el.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderPrograms(btn.dataset.cat);
+    });
+  }
+
+  function renderOrgs() {
+    const el = document.getElementById("org-grid");
+    el.innerHTML = ORGS.map(o => `
+      <div class="org-card">
+        <h3>${o.name}</h3>
+        <div class="org-tags">${o.programs.map(p => `<span>${p}</span>`).join("")}</div>
+        <div class="org-status">
+          <span class="status-pill todo">추진현황</span>
+          <span class="os-text">${o.status || "업데이트 예정"}</span>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  function renderSG() {
+    document.getElementById("sg-pills").innerHTML = SG.pills.map(p =>
+      `<span class="status-pill ${p.cls}">${p.label} <span class="lbl">${p.lbl}</span></span>`
+    ).join("");
+
+    document.getElementById("sg-facts").innerHTML = SG.facts.map(f =>
+      `<div><div class="m-k">${f.k}</div><div class="m-v">${f.v}</div></div>`
+    ).join("");
+
+    document.getElementById("sg-awards").innerHTML =
+      `<thead><tr>${SG.awards.head.map(h => `<th>${h}</th>`).join("")}</tr></thead>` +
+      `<tbody>${SG.awards.rows.map(r => `<tr><td style="font-weight:700;">${r[0]}</td><td>${r[1]}</td><td class="muted">${r[2]}</td></tr>`).join("")}</tbody>`;
+
+    document.getElementById("sg-committee").innerHTML =
+      `<thead><tr>${SG.committee.head.map(h => `<th>${h}</th>`).join("")}</tr></thead>` +
+      `<tbody>${SG.committee.rows.map(r => `<tr><td style="font-weight:700;">${r[0]}</td><td class="muted">${r[1]}</td><td>${r[2]}</td><td class="muted">${r[3]}</td></tr>`).join("")}</tbody>`;
+
+    document.getElementById("sg-timeline").innerHTML = SG.timeline.map(t => `
+      <div class="gt-item ${t.status}">
+        <div class="gt-date">${t.date}</div>
+        <div class="gt-rail"><div class="gt-dot"></div><div class="gt-line"></div></div>
+        <div class="gt-body">
+          <div class="gt-title">${t.title}${t.status === "progress" ? '<span class="status-pill progress" style="padding:2px 8px;font-size:10.5px;">진행중</span>' : t.status === "done" ? '<span class="status-pill done" style="padding:2px 8px;font-size:10.5px;">완료</span>' : ""}</div>
+          ${t.desc ? `<div class="gt-desc">${t.desc}</div>` : ""}
+        </div>
+      </div>
+    `).join("");
+
+    document.getElementById("sg-univ").innerHTML = SG.universities.map(u => `
+      <div class="sg-univ-card">
+        <div class="u-name">${u.name}</div>
+        <div class="u-desc">${u.desc}</div>
+      </div>
+    `).join("");
+
+    document.getElementById("sg-open").innerHTML = SG.openItems.map(o => `<li>${o}</li>`).join("");
+  }
+
+  function renderSub() {
+    document.getElementById("sub-grid").innerHTML = SUB.map(p => `
+      <div class="sub-card">
+        <div class="sub-head">
+          <span class="ring"></span>
+          <h3>${p.name}</h3>
+          ${p.slogan ? `<span class="sub-slogan">${p.slogan}</span>` : ""}
+          <span class="status-pill ${p.badge.cls}">${p.badge.label}</span>
+        </div>
+        <div class="sub-body">
+          <div class="sub-imgslot"><span class="tag">${p.imgTag}</span><span class="desc">${p.imgDesc}</span></div>
+          <div class="sub-info">
+            ${p.facts.map(f => `
+              <div class="sub-kv">
+                <div class="k">${f.k}</div>
+                <div class="v ${f.missing ? "missing" : ""}">${f.missing ? "확인 필요" : f.v}${f.ref ? `<span class="ref">${f.ref}</span>` : ""}</div>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  function renderChar() {
+    document.getElementById("char-stats").innerHTML = CHAR.stats.map(s => `
+      <div class="char-stat">
+        <div class="cs-k">${s.k}</div>
+        <div class="cs-v">${s.v}</div>
+        <div class="cs-sub">${s.sub}</div>
+      </div>
+    `).join("");
+
+    document.getElementById("char-grid").innerHTML = CHAR.events.map(p => `
+      <div class="sub-card">
+        <div class="sub-head">
+          <span class="ring"></span>
+          <h3>${p.name}</h3>
+          ${p.slogan ? `<span class="sub-slogan">${p.slogan}</span>` : ""}
+          <span class="status-pill ${p.badge.cls}">${p.badge.label}</span>
+        </div>
+        <div class="sub-body">
+          <div class="sub-imgslot"><span class="tag">${p.imgTag}</span><span class="desc">${p.imgDesc}</span></div>
+          <div class="sub-info">
+            ${p.facts.map(f => `
+              <div class="sub-kv">
+                <div class="k">${f.k}</div>
+                <div class="v ${f.missing ? "missing" : ""}">${f.missing ? "확인 필요" : f.v}${f.ref ? `<span class="ref">${f.ref}</span>` : ""}</div>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+        ${p.extraTable ? `
+          <div class="char-extra">
+            <h4>${p.extraTable.title}</h4>
+            <div class="table-scroll">
+              <table class="plain">
+                <thead><tr>${p.extraTable.head.map(h => `<th>${h}</th>`).join("")}</tr></thead>
+                <tbody>${p.extraTable.rows.map(r => `<tr><td style="font-weight:700;white-space:nowrap;">${r[0]}</td><td>${r[1]}</td><td class="muted">${r[2]}</td><td class="muted">${r[3]}</td></tr>`).join("")}</tbody>
+              </table>
+            </div>
+          </div>
+        ` : ""}
+      </div>
+    `).join("");
+
+    document.getElementById("char-timeline").innerHTML = CHAR.timeline.map(t => `
+      <div class="gt-item ${t.status}">
+        <div class="gt-date">${t.date}</div>
+        <div class="gt-rail"><div class="gt-dot"></div><div class="gt-line"></div></div>
+        <div class="gt-body">
+          <div class="gt-title">${t.title}${t.status === "progress" ? '<span class="status-pill progress" style="padding:2px 8px;font-size:10.5px;">진행중</span>' : t.status === "done" ? '<span class="status-pill done" style="padding:2px 8px;font-size:10.5px;">완료</span>' : ""}</div>
+          ${t.desc ? `<div class="gt-desc">${t.desc}</div>` : ""}
+        </div>
+      </div>
+    `).join("");
+  }
+
+  function renderContacts() {
+    const el = document.getElementById("contacts-list");
+    el.innerHTML = CONTACTS.map(g => `
+      <div class="sg-block">
+        <h3>${g.group}</h3>
+        <div class="table-scroll">
+          <table class="plain">
+            <thead><tr><th>담당자·소속</th><th>직위 / 담당업무</th><th>연락처</th><th>이메일</th><th>비고</th></tr></thead>
+            <tbody>
+              ${g.rows.map(r => `
+                <tr>
+                  <td style="font-weight:700;white-space:nowrap;">${r[0]}</td>
+                  <td class="muted">${r[1]}</td>
+                  <td class="${r[2] ? "" : "muted"}" style="${r[2] ? "" : "font-style:italic;"}">${r[2] || "확인 필요"}</td>
+                  <td class="${r[3] ? "" : "muted"}" style="${r[3] ? "" : "font-style:italic;"}">${r[3] || "확인 필요"}</td>
+                  <td class="muted">${r[4] || ""}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  // ============================================================
+  // ROUTER — shows one "page" (section) at a time, like a normal
+  // multi-page site, instead of one long scrolling document.
+  // ============================================================
+  function showPage(id, opts) {
+    const pages = document.querySelectorAll(".page");
+    const target = document.querySelector(`.page[data-page="${id}"]`);
+    if (!target) return false;
+    pages.forEach(p => p.classList.toggle("active", p === target));
+    document.querySelectorAll("#navlinks a").forEach(a =>
+      a.classList.toggle("active", a.getAttribute("href") === `#${id}`)
+    );
+    if (!opts || !opts.silent) {
+      try { history.replaceState(null, "", `#${id}`); } catch (e) {}
+    }
+    window.scrollTo({ top: 0, behavior: "instant" });
+    return true;
+  }
+
+  function initRouter() {
+    // Intercept every in-page anchor link (nav bar, hero CTA, cross-links
+    // like the "기능성게임 섹션 참고" link inside an org card) and route
+    // it to a page switch instead of a scroll jump.
+    document.addEventListener("click", e => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const id = a.getAttribute("href").slice(1);
+      if (!id) return;
+      if (showPage(id)) e.preventDefault();
+    });
+
+    const initial = (location.hash || "#overview").slice(1);
+    if (!showPage(initial, { silent: true })) showPage("overview", { silent: true });
+
+    window.addEventListener("hashchange", () => {
+      showPage((location.hash || "#overview").slice(1));
+    });
+  }
+
+  renderStage();
+  renderFilters();
+  renderPrograms("전체");
+  renderOrgs();
+  renderSG();
+  renderSub();
+  renderChar();
+  renderContacts();
+  initRouter();
+</script>
